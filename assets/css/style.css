@@ -1,0 +1,143 @@
+/* Custom styles for MACA CMS */
+
+/* General styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Navbar styles */
+.navbar-light .navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* Card hover effect */
+.hover-shadow {
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Icon circle */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Rich text content styling */
+.announcement-content img,
+.news-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+}
+
+.announcement-content h2,
+.news-content h2 {
+  color: #dc3545;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.announcement-content ul,
+.news-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer styles */
+footer a.text-white:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: underline;
+}
+
+/* Dashboard styles */
+.dashboard-stat {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.dashboard-stat i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Media library styles */
+.media-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.media-item .media-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.media-item:hover .media-actions {
+  opacity: 1;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+}
+
+/* Custom button styles */
+.btn-danger,
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.btn-outline-danger {
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Create uploads directory */
+.uploads-directory-notice {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}

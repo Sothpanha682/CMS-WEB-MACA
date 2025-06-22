@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Khmer S4';
+    src: url('KhmS4.woff2') format('woff2'),
+        url('KhmS4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
