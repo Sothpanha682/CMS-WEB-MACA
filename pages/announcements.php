@@ -74,40 +74,13 @@ try {
                         </div>
                         <h4 class="card-title"><?php echo htmlspecialchars($announcement['title']); ?></h4>
                         <div class="card-text mb-3"><?php echo truncateText(strip_tags($announcement['content']), 200); ?></div>
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#announcementModal<?php echo $announcement['id']; ?>">
+                        <a href="index.php?page=announcement-detail&id=<?php echo $announcement['id']; ?>" class="btn btn-outline-danger">
                             <?php echo getLangText('Read More', 'អានបន្ថែម'); ?>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Modal for full announcement -->
-            <div class="modal fade" id="announcementModal<?php echo $announcement['id']; ?>" tabindex="-1" aria-labelledby="announcementModalLabel<?php echo $announcement['id']; ?>" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header bg-danger text-white">
-                            <h5 class="modal-title" id="announcementModalLabel<?php echo $announcement['id']; ?>"><?php echo htmlspecialchars($announcement['title']); ?></h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <?php if (!empty($announcement['image_path']) && file_exists($announcement['image_path'])): ?>
-                            <img src="<?php echo htmlspecialchars($announcement['image_path']); ?>" class="img-fluid rounded mb-3" alt="<?php echo htmlspecialchars($announcement['title']); ?>">
-                            <?php endif; ?>
-                            <div class="announcement-content">
-                                <?php echo $announcement['content']; ?>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <?php if (!empty($announcement['event_date'])): ?>
-                                    <small><i class="bi bi-calendar-event me-1"></i><?php echo getLangText('Event Date: ', 'កាលបរិច្ឆេទព្រឹត្តិការណ៍: '); ?><?php echo formatDate($announcement['event_date'], 'F j, Y'); ?></small>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo getLangText('Close', 'បិទ'); ?></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <?php endforeach; ?>
         <?php else: ?>
         <div class="col-12">

@@ -51,6 +51,12 @@ foreach ($directories as $dir) {
     }
 }
 
+ while ($name!==""){
+    $result[$name] = [
+        'exists' 
+    ]
+ }
+
 // Test file upload
 $uploadTest = [];
 foreach ($directories as $dir) {

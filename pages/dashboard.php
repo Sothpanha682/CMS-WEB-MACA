@@ -95,6 +95,23 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                         <a href="index.php?page=manage-roadshow" class="list-group-item list-group-item-action d-flex align-items-center">
                             <i class="fas fa-map-marked-alt me-2"></i> Manage Roadshow
                         </a>
+                        <a href="index.php?page=manage-intern-news" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <i class="fas fa-user-graduate me-2"></i> Manage Intern News
+                        </a>
+                        <a href="index.php?page=manage-online-courses" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <i class="fas fa-laptop me-2"></i> Online Courses
+                        </a>
+                        <a href="index.php?page=manage-recruitment-applications" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <i class="fas fa-briefcase me-2"></i> Job Applications
+                            <?php 
+                            try {
+                                $stmt = $pdo->query("SELECT COUNT(*) FROM job_applications WHERE status = 'pending'");
+                                $pending_applications = $stmt->fetchColumn();
+                                if ($pending_applications > 0): 
+                            ?>
+                            <span class="badge bg-warning rounded-pill ms-auto"><?php echo $pending_applications; ?></span>
+                            <?php endif; } catch(PDOException $e) { } ?>
+                        </a>
                         
                         <div class="dropdown-divider"></div>
                         <a href="includes/logout.php" class="list-group-item list-group-item-action d-flex align-items-center text-danger">
@@ -130,8 +147,10 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                     </div>
                     <?php unset($_SESSION['message']); unset($_SESSION['message_type']); ?>
                 <?php endif; ?>
+
                 
                 <!-- Dashboard Overview -->
+
                 <div class="row mb-4">
                     <div class="col-md-3 mb-4">
                         <div class="card bg-danger text-white h-100">
@@ -207,49 +226,157 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h6 class="mb-0">Content Items</h6>
+                                        <h6 class="mb-0">Online Courses</h6>
                                         <?php
                                         try {
-                                            $popJobsCount = $pdo->query("SELECT COUNT(*) FROM popular_jobs")->fetchColumn();
-                                            $popMajorsCount = $pdo->query("SELECT COUNT(*) FROM popular_majors")->fetchColumn();
-                                            $total = $popJobsCount + $popMajorsCount;
-                                            echo '<h2 class="mb-0">' . $total . '</h2>';
+                                            $stmt = $pdo->query("SELECT COUNT(*) FROM online_courses");
+                                            $courses_count = $stmt->fetchColumn();
+                                            echo '<h2 class="mb-0">' . $courses_count . '</h2>';
                                         } catch(PDOException $e) {
                                             echo '<h2 class="mb-0">0</h2>';
                                         }
                                         ?>
                                     </div>
                                     <div class="bg-white rounded-circle p-3 text-info">
-                                        <i class="fas fa-th-large fa-2x"></i>
+                                        <i class="fas fa-laptop fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card bg-warning text-white h-100">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h6 class="mb-0">Unread Messages</h6>
-                                        <?php
-                                        try {
-                                            $unread_count = countUnreadMessages();
-                                            echo '<h2 class="mb-0">' . $unread_count . '</h2>';
-                                        } catch(PDOException $e) {
-                                            echo '<h2 class="mb-0">0</h2>';
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="bg-white rounded-circle p-3 text-warning">
-                                        <i class="fas fa-envelope fa-2x"></i>
-                                    </div>
+
+
+
+
+ <div class="col-md-3 mb-4">
+                    <div class="card bg-warning text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">Unread Messages</h6>
+                                    <?php
+                                    try {
+                                        $unread_count = countUnreadMessages();
+                                        echo '<h2 class="mb-0">' . $unread_count . '</h2>';
+                                    } catch(PDOException $e) {
+                                        echo '<h2 class="mb-0">0</h2>';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="bg-white rounded-circle p-3 text-warning">
+                                    <i class="fas fa-envelope fa-2x"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-</div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-secondary text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">Intern News</h6>
+                                    <?php
+                                    try {
+                                        $stmt = $pdo->query("SELECT COUNT(*) FROM intern_news");
+                                        $intern_news_count = $stmt->fetchColumn();
+                                        echo '<h2 class="mb-0">' . $intern_news_count . '</h2>';
+                                    } catch(PDOException $e) {
+                                        echo '<h2 class="mb-0">0</h2>';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="bg-white rounded-circle p-3 text-secondary">
+                                    <i class="fas fa-user-graduate fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-info text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">Job Applications</h6>
+                                    <?php
+                                    try {
+                                        $stmt = $pdo->query("SELECT COUNT(*) FROM job_applications");
+                                        $applications_count = $stmt->fetchColumn();
+                                        echo '<h2 class="mb-0">' . $applications_count . '</h2>';
+                                    } catch(PDOException $e) {
+                                        echo '<h2 class="mb-0">0</h2>';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="bg-white rounded-circle p-3 text-info">
+                                    <i class="fas fa-briefcase fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
                 
+                <!-- Quick Links -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Quick Links</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <a href="index.php?page=manage-online-courses" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-laptop fa-2x mb-2"></i>
+                                    Online Courses
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="index.php?page=manage-intern-news" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-user-graduate fa-2x mb-2"></i>
+                                    Intern News
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="index.php?page=manage-media" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-images fa-2x mb-2"></i>
+                                    Media Library
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="index.php?page=manage-site-settings" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-cog fa-2x mb-2"></i>
+                                    Site Settings
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="#messages-section" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-envelope fa-2x mb-2"></i>
+                                    Messages
+                                    <?php if ($unread_count > 0): ?>
+                                    <span class="badge bg-warning rounded-pill"><?php echo $unread_count; ?></span>
+                                    <?php endif; ?>
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="index.php?page=manage-recruitment-applications" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                                    <i class="fas fa-briefcase fa-2x mb-2"></i>
+                                    Job Applications
+                                    <?php 
+                                    try {
+                                        $stmt = $pdo->query("SELECT COUNT(*) FROM job_applications WHERE status = 'pending'");
+                                        $pending_count = $stmt->fetchColumn();
+                                        if ($pending_count > 0): 
+                                    ?>
+                                    <span class="badge bg-warning rounded-pill"><?php echo $pending_count; ?></span>
+                                    <?php endif; } catch(PDOException $e) { } ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
                 <!-- Announcements Section -->
                 <div class="card shadow-sm mb-4" id="announcements-section">
                     <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
@@ -307,7 +434,7 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                         ?>
                     </div>
                 </div>
-                
+
                 <!-- News Section -->
                 <div class="card shadow-sm mb-4" id="news-section">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
@@ -365,146 +492,104 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                         ?>
                     </div>
                 </div>
-                
-<!-- Messages Section -->
-<div class="card shadow-sm mb-4" id="messages-section">
-    <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
-        <h5 class="mb-0">Contact Messages</h5>
-        <a href="index.php?page=manage-messages" class="btn btn-sm btn-light">
-            <i class="fas fa-envelope-open me-1"></i> View All
-        </a>
-    </div>
-    <div class="card-body">
-        <?php
-        try {
-            $messages = getContactMessages(5);
-            
-            if (count($messages) > 0):
-        ?>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($messages as $msg): ?>
-                    <tr class="<?php echo $msg['is_read'] ? '' : 'table-warning'; ?>">
-                        <td><?php echo $msg['name']; ?></td>
-                        <td><?php echo $msg['subject']; ?></td>
-                        <td><?php echo formatDate($msg['created_at']); ?></td>
-                        <td>
-                            <?php if ($msg['is_read']): ?>
-                                <span class="badge bg-secondary">Read</span>
-                            <?php else: ?>
-                                <span class="badge bg-warning">Unread</span>
-                            <?php endif; ?>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-outline-primary view-message" 
-                                    data-bs-toggle="modal" data-bs-target="#messageModal<?php echo $msg['id']; ?>">
-                                View
-                            </button>
-                            <a href="index.php?action=delete-message&id=<?php echo $msg['id']; ?>" 
-                               class="btn btn-sm btn-outline-danger" 
-                               onclick="return confirm('Are you sure you want to delete this message?')">
-                                Delete
-                            </a>
-                            
-                            <!-- Message Modal -->
-                            <div class="modal fade" id="messageModal<?php echo $msg['id']; ?>" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title"><?php echo $msg['subject']; ?></h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="mb-3">
-                                                <strong>From:</strong> <?php echo $msg['name']; ?> (<?php echo $msg['email']; ?>)
-                                            </div>
-                                            <div class="mb-3">
-                                                <strong>Date:</strong> <?php echo formatDate($msg['created_at'], 'M d, Y h:i A'); ?>
-                                            </div>
-                                            <div class="mb-3">
-                                                <strong>Message:</strong>
-                                                <p class="mt-2"><?php echo nl2br($msg['message']); ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="index.php?action=mark-message-read&id=<?php echo $msg['id']; ?>" class="btn btn-success">
-                                                Mark as Read
-                                            </a>
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        <?php else: ?>
-            <div class="alert alert-info">No messages found.</div>
-        <?php 
-            endif;
-        } catch(PDOException $e) {
-            echo '<div class="alert alert-danger">Error: ' . $e->getMessage() . '</div>';
-        }
-        ?>
-    </div>
-</div>
-                
-                <!-- Quick Links -->
-                <div class="card shadow-sm">
-                    <div class="card-header bg-dark text-white">
-                        <h5 class="mb-0">Quick Links</h5>
+
+                <!-- Messages Section -->
+                <div class="card shadow-sm mb-4" id="messages-section">
+                    <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Contact Messages</h5>
+                        <a href="index.php?page=manage-messages" class="btn btn-sm btn-light">
+                            <i class="fas fa-envelope-open me-1"></i> View All
+                        </a>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3 mb-3">
-                                <a href="index.php?page=manage-media" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
-                                    <i class="fas fa-images fa-2x mb-2"></i>
-                                    Media Library
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="index.php?page=manage-site-settings" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
-                                    <i class="fas fa-cog fa-2x mb-2"></i>
-                                    Site Settings
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="index.php?page=manage-users" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
-                                    <i class="fas fa-user-shield fa-2x mb-2"></i>
-                                    Admin Management
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="index.php?page=manage-popular-career" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
-                                    <i class="fas fa-briefcase fa-2x mb-2"></i>
-                                    Manage Career
-                                </a>
-                            </div>
+                        <?php
+                        try {
+                            $messages = getContactMessages(5);
+                            
+                            if (count($messages) > 0):
+                        ?>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Subject</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($messages as $msg): ?>
+                                    <tr class="<?php echo $msg['is_read'] ? '' : 'table-warning'; ?>">
+                                        <td><?php echo $msg['name']; ?></td>
+                                        <td><?php echo $msg['subject']; ?></td>
+                                        <td><?php echo formatDate($msg['created_at']); ?></td>
+                                        <td>
+                                            <?php if ($msg['is_read']): ?>
+                                                <span class="badge bg-secondary">Read</span>
+                                            <?php else: ?>
+                                                <span class="badge bg-warning">Unread</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-outline-primary view-message" 
+                                                    data-bs-toggle="modal" data-bs-target="#messageModal<?php echo $msg['id']; ?>">
+                                                View
+                                            </button>
+                                            <a href="index.php?action=delete-message&id=<?php echo $msg['id']; ?>" 
+                                               class="btn btn-sm btn-outline-danger" 
+                                               onclick="return confirm('Are you sure you want to delete this message?')">
+                                                Delete
+                                            </a>
+                                            
+                                            <!-- Message Modal -->
+                                            <div class="modal fade" id="messageModal<?php echo $msg['id']; ?>" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"><?php echo $msg['subject']; ?></h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <strong>From:</strong> <?php echo $msg['name']; ?> (<?php echo $msg['email']; ?>)
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <strong>Date:</strong> <?php echo formatDate($msg['created_at'], 'M d, Y h:i A'); ?>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <strong>Message:</strong>
+                                                                <p class="mt-2"><?php echo nl2br($msg['message']); ?></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a href="index.php?action=mark-message-read&id=<?php echo $msg['id']; ?>" class="btn btn-success">
+                                                                Mark as Read
+                                                            </a>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
-<div class="col-md-3 mb-3">
-    <a href="#messages-section" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
-        <i class="fas fa-envelope fa-2x mb-2"></i>
-        Messages
-        <?php if ($unread_count > 0): ?>
-        <span class="badge bg-warning rounded-pill"><?php echo $unread_count; ?></span>
-        <?php endif; ?>
-    </a>
-</div>
+                        <?php else: ?>
+                            <div class="alert alert-info">No messages found.</div>
+                        <?php 
+                            endif;
+                        } catch(PDOException $e) {
+                            echo '<div class="alert alert-danger">Error: ' . $e->getMessage() . '</div>';
+                        }
+                        ?>
                     </div>
                 </div>
+                
+               
             </div>
         </div>
     </div>

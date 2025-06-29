@@ -74,14 +74,17 @@
     </div>
 </div>
 
+  
+
  <style>
-      body {
+     body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: white;
         color: #333;
         padding: 0rem;
       }
+
 
       .preview-section {
         background-color: #dc3545;
@@ -217,18 +220,16 @@
     <section class="preview-section">
       <div class="preview-content">
         <div class="preview-text">
-          <h2>MACA MOBILE APP</h2>
-          <p><strong>Career Assessment to Uncover Your Potential</strong></p>
+          <h2><?php echo getLangText('MACA MOBILE APP', 'កម្មវិធីទូរស័ព្ទ MACA'); ?></h2>
+          <p><strong><?php echo getLangText('Career Assessment to Uncover Your Potential', 'ការវាយតម្លៃអាជីពដើម្បីស្វែងរកសក្តានុពលរបស់អ្នក'); ?></strong></p>
           <p>
-            MACA has developed the MACA Mobile application to assess which
-            majors and careers best suit each individual and to provide detailed
-            information on various academic and career options.
+            <?php echo getLangText('MACA has developed the MACA Mobile application to assess which majors and careers best suit each individual and to provide detailed information on various academic and career options.', 'MACA បានបង្កើតកម្មវិធីទូរស័ព្ទ MACA ដើម្បីវាយតម្លៃថាតើមុខជំនាញ និងអាជីពណាដែលស័ក្តិសមបំផុតសម្រាប់បុគ្គលម្នាក់ៗ និងផ្តល់ព័ត៌មានលម្អិតអំពីជម្រើសសិក្សា និងអាជីពផ្សេងៗ។'); ?>
           </p>
-          <p><strong>MACA App Knowledge:</strong></p>
+          <p><strong><?php echo getLangText('MACA App Knowledge:', 'ចំណេះដឹងអំពីកម្មវិធី MACA៖'); ?></strong></p>
           <ul class="preview-list">
-            <li>Learn about yourself</li>
-            <li>Learn about academic skills</li>
-            <li>Learn about careers</li>
+            <li><?php echo getLangText('Learn about yourself', 'ស្វែងយល់ពីខ្លួនឯង'); ?></li>
+            <li><?php echo getLangText('Learn about academic skills', 'ស្វែងយល់ពីជំនាញសិក្សា'); ?></li>
+            <li><?php echo getLangText('Learn about careers', 'ស្វែងយល់ពីអាជីព'); ?></li>
           </ul>
 
           <div class="preview-buttons">
@@ -270,8 +271,8 @@
                 </div>
                 <div class="icon-glow"></div>
             </div>
-            <h2 class="section-title-enhanced">Our Educational <span class="text-danger">Programs</span></h2>
-            <p class="section-subtitle-enhanced">Discover the various educational opportunities we offer to shape your future</p>
+            <h2 class="section-title-enhanced"><?php echo getLangText('Our Educational', 'កម្មវិធីអប់រំរបស់យើង'); ?> <span class="text-danger"><?php echo getLangText('Programs', 'កម្មវិធី'); ?></span></h2>
+            <p class="section-subtitle-enhanced"><?php echo getLangText('Discover the various educational opportunities we offer to shape your future', 'ស្វែងយល់ពីឱកាសអប់រំផ្សេងៗដែលយើងផ្តល់ជូនដើម្បីកសាងអនាគតរបស់អ្នក'); ?></p>
             <div class="section-divider-enhanced"></div>
         </div>
         
@@ -280,36 +281,36 @@
             <?php
             $programs = [
                 [
-                    'title' => 'Online Learning',
-                    'description' => 'Access quality education from anywhere with our comprehensive online courses and interactive learning platforms.',
+                    'title' => getLangText('Online Learning', 'ការសិក្សាតាមអនឡាញ'),
+                    'description' => getLangText('Access quality education from anywhere with our comprehensive online courses and interactive learning platforms.', 'ទទួលបានការអប់រំប្រកបដោយគុណភាពពីគ្រប់ទីកន្លែងជាមួយនឹងវគ្គសិក្សាអនឡាញដ៏ទូលំទូលាយ និងវេទិកាសិក្សាអន្តរកម្មរបស់យើង។'),
                     'icon' => 'fa-laptop',
                     'link' => 'index.php?page=program/online-learning',
                     'color' => 'blue',
-                    'features' => ['24/7 Access', 'Interactive Content', 'Expert Instructors']
+                    'features' => [getLangText('24/7 Access', 'ចូលប្រើ 24/7'), getLangText('Interactive Content', 'មាតិកាអន្តរកម្ម'), getLangText('Expert Instructors', 'គ្រូបង្រៀនជំនាញ')]
                 ],
                 [
-                    'title' => 'Career Counselling',
-                    'description' => 'Get expert guidance to make informed decisions about your academic and career path with personalized advice.',
+                    'title' => getLangText('Career Counselling', 'ការប្រឹក្សាអាជីព'),
+                    'description' => getLangText('Get expert guidance to make informed decisions about your academic and career path with personalized advice.', 'ទទួលបានការណែនាំពីអ្នកជំនាញដើម្បីធ្វើការសម្រេចចិត្តប្រកបដោយព័ត៌មានអំពីផ្លូវសិក្សា និងអាជីពរបស់អ្នកជាមួយនឹងដំបូន្មានផ្ទាល់ខ្លួន។'),
                     'icon' => 'fa-compass',
                     'link' => 'index.php?page=program/career-counselling',
                     'color' => 'green',
-                    'features' => ['Personal Guidance', 'Career Planning', 'Industry Insights']
+                    'features' => [getLangText('Personal Guidance', 'ការណែនាំផ្ទាល់ខ្លួន'), getLangText('Career Planning', 'ការរៀបចំផែនការអាជីព'), getLangText('Industry Insights', 'ការយល់ដឹងអំពីឧស្សាហកម្ម')]
                 ],
                 [
-                    'title' => 'Internship Program',
-                    'description' => 'Gain practical experience through our partnerships with leading organizations and build your professional network.',
+                    'title' => getLangText('Internship Program', 'កម្មវិធីកម្មសិក្សា'),
+                    'description' => getLangText('Gain practical experience through our partnerships with leading organizations and build your professional network.', 'ទទួលបានបទពិសោធន៍ជាក់ស្តែងតាមរយៈភាពជាដៃគូរបស់យើងជាមួយអង្គការឈានមុខគេ និងកសាងបណ្តាញវិជ្ជាជីវៈរបស់អ្នក។'),
                     'icon' => 'fa-briefcase',
                     'link' => '#',
                     'color' => 'purple',
-                    'features' => ['Real Experience', 'Industry Partners', 'Skill Development']
+                    'features' => [getLangText('Real Experience', 'បទពិសោធន៍ពិតប្រាកដ'), getLangText('Industry Partners', 'ដៃគូឧស្សាហកម្ម'), getLangText('Skill Development', 'ការអភិវឌ្ឍជំនាញ')]
                 ],
                 [
-                    'title' => 'Online Recruitment',
-                    'description' => 'Connect with employers looking for talented individuals like you through our comprehensive job placement platform.',
+                    'title' => getLangText('Online Recruitment', 'ការជ្រើសរើសតាមអនឡាញ'),
+                    'description' => getLangText('Connect with employers looking for talented individuals like you through our comprehensive job placement platform.', 'ភ្ជាប់ទំនាក់ទំនងជាមួយនិយោជកដែលកំពុងស្វែងរកបុគ្គលដែលមានទេពកោសល្យដូចអ្នកតាមរយៈវេទិកាស្វែងរកការងារដ៏ទូលំទូលាយរបស់យើង។'),
                     'icon' => 'fa-handshake',
                     'link' => '#',
                     'color' => 'orange',
-                    'features' => ['Job Matching', 'Employer Network', 'Career Support']
+                    'features' => [getLangText('Job Matching', 'ការផ្គូផ្គងការងារ'), getLangText('Employer Network', 'បណ្តាញនិយោជក'), getLangText('Career Support', 'ការគាំទ្រអាជីព')]
                 ]
             ];
             
@@ -346,7 +347,7 @@
                     <!-- Card Footer -->
                     <div class="program-footer">
                         <a href="<?php echo $program['link']; ?>" class="btn-program-learn">
-                            <span>Learn More</span>
+                            <span><?php echo getLangText('Learn More', 'ស្វែងយល់បន្ថែម'); ?></span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -370,8 +371,8 @@
                     <i class="fas fa-graduation-cap"></i>
                 </div>
             </div>
-            <h2 class="section-title">Popular <span class="text-danger">Majors</span></h2>
-            <p class="section-subtitle">Explore top academic fields chosen by our students</p>
+            <h2 class="section-title"><?php echo getLangText('Popular', 'មុខជំនាញ'); ?> <span class="text-danger"><?php echo getLangText('Majors', 'ពេញនិយម'); ?></span></h2>
+            <p class="section-subtitle"><?php echo getLangText('Explore top academic fields chosen by our students', 'ស្វែងយល់ពីមុខជំនាញសិក្សាដែលពេញនិយមបំផុតដែលជ្រើសរើសដោយសិស្សរបស់យើង'); ?></p>
             <div class="section-divider"></div>
         </div>
         
@@ -407,7 +408,7 @@
                     
 <div class="major-overlay">
     <button type="button" class="btn-explore" data-bs-toggle="modal" data-bs-target="#majorModal<?php echo $major['id']; ?>">
-        Explore Major
+        <?php echo getLangText('Explore Major', 'ស្វែងយល់ពីមុខជំនាញ'); ?>
     </button>
 </div>
 
@@ -476,66 +477,66 @@
                         <?php endif; ?>
                         
                         <div class="mt-3">
-                            <h6 class="fw-bold">Key Information</h6>
-                            <ul class="list-unstyled">
-                                <?php if (!empty($major['institutions'])): ?>
-                                <li class="mb-2">
-                                    <i class="fas fa-university text-danger me-2"></i>
-                                    <strong>Institutions:</strong> <?php echo $major['institutions']; ?>
-                                </li>
-                                <?php endif; ?>
-                                <li class="mb-2">
-                                    <i class="fas fa-money-bill-wave text-danger me-2"></i>
-                                    <strong>Avg. Salary:</strong> <?php echo $salary_range; ?>
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-clock text-danger me-2"></i>
-                                    <strong>Duration:</strong> <?php echo !empty($major['duration']) ? $major['duration'] : '4 years'; ?>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="border-bottom pb-2 mb-3">About this Major</h5>
-                        <div class="major-full-description mb-4">
-                            <?php 
-                            if (!empty($major['about_major'])) {
-                                echo $major['about_major'];
-                            } elseif (!empty($major['description'])) {
-                                echo $major['description'];
-                            } else {
-                                echo 'No detailed description available.';
-                            }
-                            ?>
-                        </div>
-                        
-                        <h5 class="border-bottom pb-2 mb-3">Skills Gained</h5>
-                        <div class="major-skills-container mb-4">
-                            <?php 
-                            if (!empty($major['skills_gained'])) {
-                                $skills_text = strip_tags($major['skills_gained']);
-                                $skills = explode(',', $skills_text);
-                                foreach ($skills as $skill): 
-                            ?>
-                                <span class="badge bg-light text-danger border border-danger me-2 mb-2 p-2"><?php echo trim($skill); ?></span>
-                            <?php 
-                                endforeach;
-                            } else {
-                                echo '<p class="text-muted">No specific skills listed.</p>';
-                            }
-                            ?>
-                        </div>
-                        
-                        <h5 class="border-bottom pb-2 mb-3">Career Opportunities</h5>
-                        <div class="major-careers mb-4">
-                            <?php 
-                            if (!empty($major['career_opportunities'])) {
-                                echo $major['career_opportunities'];
-                            } else {
-                                echo 'No specific career opportunities listed.';
-                            }
-                            ?>
-                        </div>
+                    <h6 class="fw-bold"><?php echo getLangText('Key Information', 'ព័ត៌មានសំខាន់ៗ'); ?></h6>
+                    <ul class="list-unstyled">
+                        <?php if (!empty($major['institutions'])): ?>
+                        <li class="mb-2">
+                            <i class="fas fa-university text-danger me-2"></i>
+                            <strong><?php echo getLangText('Institutions:', 'ស្ថាប័ន៖'); ?></strong> <?php echo $major['institutions']; ?>
+                        </li>
+                        <?php endif; ?>
+                        <li class="mb-2">
+                            <i class="fas fa-money-bill-wave text-danger me-2"></i>
+                            <strong><?php echo getLangText('Avg. Salary:', 'ប្រាក់ខែជាមធ្យម៖'); ?></strong> <?php echo $salary_range; ?>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-clock text-danger me-2"></i>
+                            <strong><?php echo getLangText('Duration:', 'រយៈពេល៖'); ?></strong> <?php echo !empty($major['duration']) ? $major['duration'] : getLangText('4 years', '៤ ឆ្នាំ'); ?>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('About this Major', 'អំពីមុខជំនាញនេះ'); ?></h5>
+                <div class="major-full-description mb-4">
+                    <?php 
+                    if (!empty($major['about_major'])) {
+                        echo $major['about_major'];
+                    } elseif (!empty($major['description'])) {
+                        echo $major['description'];
+                    } else {
+                        echo getLangText('No detailed description available.', 'មិនមានការពិពណ៌នាលម្អិតទេ។');
+                    }
+                    ?>
+                </div>
+                
+                <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Skills Gained', 'ជំនាញដែលទទួលបាន'); ?></h5>
+                <div class="major-skills-container mb-4">
+                    <?php 
+                    if (!empty($major['skills_gained'])) {
+                        $skills_text = strip_tags($major['skills_gained']);
+                        $skills = explode(',', $skills_text);
+                        foreach ($skills as $skill): 
+                    ?>
+                        <span class="badge bg-light text-danger border border-danger me-2 mb-2 p-2"><?php echo trim($skill); ?></span>
+                    <?php 
+                        endforeach;
+                    } else {
+                        echo '<p class="text-muted">' . getLangText('No specific skills listed.', 'មិនមានជំនាញជាក់លាក់ណាមួយត្រូវបានរាយបញ្ជីទេ។') . '</p>';
+                    }
+                    ?>
+                </div>
+                
+                <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Career Opportunities', 'ឱកាសអាជីព'); ?></h5>
+                <div class="major-careers mb-4">
+                    <?php 
+                    if (!empty($major['career_opportunities'])) {
+                        echo $major['career_opportunities'];
+                    } else {
+                        echo getLangText('No specific career opportunities listed.', 'មិនមានឱកាសអាជីពជាក់លាក់ណាមួយត្រូវបានរាយបញ្ជីទេ។');
+                    }
+                    ?>
+                </div>
                     </div>
                 </div>
             </div>
@@ -594,7 +595,7 @@
                     
 <div class="major-overlay">
     <button type="button" class="btn-explore" data-bs-toggle="modal" data-bs-target="#majorModalSample<?php echo $index; ?>">
-        Explore Major
+        <?php echo getLangText('Explore Major', 'ស្វែងយល់ពីមុខជំនាញ'); ?>
     </button>
 </div>
 
@@ -638,51 +639,51 @@
                         </div>
                         
                         <div class="mt-3">
-                            <h6 class="fw-bold">Key Information</h6>
+                            <h6 class="fw-bold"><?php echo getLangText('Key Information', 'ព័ត៌មានសំខាន់ៗ'); ?></h6>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <i class="fas fa-university text-danger me-2"></i>
-                                    <strong>Institutions:</strong> <?php echo $major['institutions']; ?>
+                                    <strong><?php echo getLangText('Institutions:', 'ស្ថាប័ន៖'); ?></strong> <?php echo $major['institutions']; ?>
                                 </li>
                                 <li class="mb-2">
                                     <i class="fas fa-money-bill-wave text-danger me-2"></i>
-                                    <strong>Avg. Salary:</strong> <?php echo $major['salary']; ?>
+                                    <strong><?php echo getLangText('Avg. Salary:', 'ប្រាក់ខែជាមធ្យម៖'); ?></strong> <?php echo $major['salary']; ?>
                                 </li>
                                 <li class="mb-2">
                                     <i class="fas fa-clock text-danger me-2"></i>
-                                    <strong>Duration:</strong> 4 years
+                                    <strong><?php echo getLangText('Duration:', 'រយៈពេល៖'); ?></strong> <?php echo getLangText('4 years', '៤ ឆ្នាំ'); ?>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h5 class="border-bottom pb-2 mb-3">About this Major</h5>
+                        <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('About this Major', 'អំពីមុខជំនាញនេះ'); ?></h5>
                         <div class="major-full-description mb-4">
                             <p><?php echo $major['description']; ?></p>
-                            <p>This program provides students with a comprehensive education in <?php echo strtolower($major['title']); ?>, preparing them for various career paths in the field.</p>
+                            <p><?php echo getLangText('This program provides students with a comprehensive education in', 'កម្មវិធីនេះផ្តល់ជូនសិស្សនូវការអប់រំដ៏ទូលំទូលាយក្នុង'); ?> <?php echo strtolower($major['title']); ?>, <?php echo getLangText('preparing them for various career paths in the field.', 'រៀបចំពួកគេសម្រាប់ផ្លូវអាជីពផ្សេងៗក្នុងវិស័យនេះ។'); ?></p>
                         </div>
                         
-                        <h5 class="border-bottom pb-2 mb-3">Skills Gained</h5>
+                        <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Skills Gained', 'ជំនាញដែលទទួលបាន'); ?></h5>
                         <div class="major-skills-container mb-4">
                             <?php foreach ($major['skills'] as $skill): ?>
                                 <span class="badge bg-light text-danger border border-danger me-2 mb-2 p-2"><?php echo $skill; ?></span>
                             <?php endforeach; ?>
                         </div>
                         
-                        <h5 class="border-bottom pb-2 mb-3">Career Opportunities</h5>
+                        <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Career Opportunities', 'ឱកាសអាជីព'); ?></h5>
                         <div class="major-careers mb-4">
-                            <p>Graduates of this program can pursue careers in various sectors including:</p>
+                            <p><?php echo getLangText('Graduates of this program can pursue careers in various sectors including:', 'និស្សិតបញ្ចប់ការសិក្សាពីកម្មវិធីនេះអាចបន្តអាជីពក្នុងវិស័យផ្សេងៗរួមមាន៖'); ?></p>
                             <ul>
                                 <?php 
                                 $careers = [
-                                    'Computer Science' => ['Software Developer', 'Data Scientist', 'Systems Analyst', 'IT Consultant'],
-                                    'Business Administration' => ['Business Analyst', 'Marketing Manager', 'Project Manager', 'Entrepreneur'],
-                                    'Engineering' => ['Design Engineer', 'Project Engineer', 'Systems Engineer', 'Research & Development'],
-                                    'Healthcare Sciences' => ['Clinical Specialist', 'Healthcare Administrator', 'Research Scientist', 'Medical Consultant']
+                                    'Computer Science' => [getLangText('Software Developer', 'អ្នកអភិវឌ្ឍន៍កម្មវិធី'), getLangText('Data Scientist', 'អ្នកវិទ្យាសាស្ត្រទិន្នន័យ'), getLangText('Systems Analyst', 'អ្នកវិភាគប្រព័ន្ធ'), getLangText('IT Consultant', 'ទីប្រឹក្សាបច្ចេកវិទ្យាព័ត៌មាន')],
+                                    'Business Administration' => [getLangText('Business Analyst', 'អ្នកវិភាគអាជីវកម្ម'), getLangText('Marketing Manager', 'អ្នកគ្រប់គ្រងទីផ្សារ'), getLangText('Project Manager', 'អ្នកគ្រប់គ្រងគម្រោង'), getLangText('Entrepreneur', 'សហគ្រិន')],
+                                    'Engineering' => [getLangText('Design Engineer', 'វិស្វកររចនា'), getLangText('Project Engineer', 'វិស្វករគម្រោង'), getLangText('Systems Engineer', 'វិស្វករប្រព័ន្ធ'), getLangText('Research & Development', 'ស្រាវជ្រាវ និងអភិវឌ្ឍន៍')],
+                                    'Healthcare Sciences' => [getLangText('Clinical Specialist', 'អ្នកឯកទេសគ្លីនិក'), getLangText('Healthcare Administrator', 'អ្នកគ្រប់គ្រងសុខភាព'), getLangText('Research Scientist', 'អ្នកវិទ្យាសាស្ត្រស្រាវជ្រាវ'), getLangText('Medical Consultant', 'ទីប្រឹក្សាវេជ្ជសាស្ត្រ')]
                                 ];
                                 
                                 $title = $major['title'];
-                                $career_list = isset($careers[$title]) ? $careers[$title] : ['Industry Specialist', 'Consultant', 'Researcher', 'Manager'];
+                                $career_list = isset($careers[$title]) ? $careers[$title] : [getLangText('Industry Specialist', 'អ្នកឯកទេសឧស្សាហកម្ម'), getLangText('Consultant', 'ទីប្រឹក្សា'), getLangText('Researcher', 'អ្នកស្រាវជ្រាវ'), getLangText('Manager', 'អ្នកគ្រប់គ្រង')];
                                 
                                 foreach ($career_list as $career):
                                 ?>
@@ -710,7 +711,7 @@
         
         <div class="text-center mt-5">
             <a href="index.php?page=popular-majors" class="btn-view-all">
-                <span>View All Majors</span>
+                <span><?php echo getLangText('View All Majors', 'មើលមុខជំនាញទាំងអស់'); ?></span>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
@@ -726,8 +727,8 @@
                     <i class="fas fa-briefcase"></i>
                 </div>
             </div>
-            <h2 class="section-title">Popular <span class="text-danger">Career</span></h2>
-            <p class="section-subtitle">Discover in-demand career opportunities for our graduates</p>
+            <h2 class="section-title"><?php echo getLangText('Popular', 'អាជីព'); ?> <span class="text-danger"><?php echo getLangText('Career', 'ពេញនិយម'); ?></span></h2>
+            <p class="section-subtitle"><?php echo getLangText('Discover in-demand career opportunities for our graduates', 'ស្វែងយល់ពីឱកាសអាជីពដែលមានតម្រូវការសម្រាប់និស្សិតបញ្ចប់ការសិក្សារបស់យើង'); ?></p>
             <div class="section-divider"></div>
         </div>
         
@@ -807,7 +808,7 @@
                         <?php echo mb_substr(strip_tags($job['description']), 0, 150) . '...'; ?>
                     </div>
                     <div class="job-actions">
-                        <button type="button" class="btn-job-details" data-bs-toggle="modal" data-bs-target="#jobModal<?php echo $job['id']; ?>">View Details</button>
+                        <button type="button" class="btn-job-details" data-bs-toggle="modal" data-bs-target="#jobModal<?php echo $job['id']; ?>"><?php echo getLangText('View Details', 'មើលលម្អិត'); ?></button>
                     </div>
                 </div>
             </div>
@@ -832,59 +833,59 @@
                                     <?php endif; ?>
                                     
                                     <div class="mt-3">
-                                        <h6 class="fw-bold">Job Details</h6>
+                                        <h6 class="fw-bold"><?php echo getLangText('Job Details', 'ព័ត៌មានលម្អិតការងារ'); ?></h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
                                                 <i class="fas fa-building text-danger me-2"></i>
-                                                <strong>Company:</strong> <?php echo !empty($job['company']) ? $job['company'] : 'Various Companies'; ?>
+                                                <strong><?php echo getLangText('Company:', 'ក្រុមហ៊ុន៖'); ?></strong> <?php echo !empty($job['company']) ? $job['company'] : getLangText('Various Companies', 'ក្រុមហ៊ុនផ្សេងៗ'); ?>
                                             </li>
                                             <?php if (!empty($job['salary_range'])): ?>
                                             <li class="mb-2">
                                                 <i class="fas fa-money-bill-wave text-danger me-2"></i>
-                                                <strong>Salary:</strong> <?php echo $job['salary_range']; ?>
+                                                <strong><?php echo getLangText('Salary:', 'ប្រាក់ខែ៖'); ?></strong> <?php echo $job['salary_range']; ?>
                                             </li>
                                             <?php endif; ?>
                                             <li class="mb-2">
                                                 <i class="fas fa-map-marker-alt text-danger me-2"></i>
-                                                <strong>Location:</strong> <?php echo !empty($job['location']) ? $job['location'] : 'Remote / Phnom Penh'; ?>
+                                                <strong><?php echo getLangText('Location:', 'ទីតាំង៖'); ?></strong> <?php echo !empty($job['location']) ? $job['location'] : getLangText('Remote / Phnom Penh', 'ពីចម្ងាយ / ភ្នំពេញ'); ?>
                                             </li>
                                             <li class="mb-2">
                                                 <i class="fas fa-clock text-danger me-2"></i>
-                                                <strong>Job Type:</strong> <?php echo !empty($job['job_type']) ? $job['job_type'] : 'Full-time'; ?>
+                                                <strong><?php echo getLangText('Job Type:', 'ប្រភេទការងារ៖'); ?></strong> <?php echo !empty($job['job_type']) ? $job['job_type'] : getLangText('Full-time', 'ពេញម៉ោង'); ?>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="border-bottom pb-2 mb-3">Job Description</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Job Description', 'ការពិពណ៌នាការងារ'); ?></h5>
                                     <div class="job-full-description mb-4">
-                                        <?php echo !empty($job['description']) ? $job['description'] : 'No detailed description available.'; ?>
+                                        <?php echo !empty($job['description']) ? $job['description'] : getLangText('No detailed description available.', 'មិនមានការពិពណ៌នាលម្អិតទេ។'); ?>
                                     </div>
                                     
-                                    <h5 class="border-bottom pb-2 mb-3">Requirements</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Requirements', 'តម្រូវការ'); ?></h5>
                                     <div class="job-requirements mb-4">
                                         <?php if (!empty($job['requirements'])): ?>
                                             <?php echo $job['requirements']; ?>
                                         <?php else: ?>
                                             <ul>
-                                                <li>Bachelor's degree in a relevant field</li>
-                                                <li>2+ years of experience in a similar role</li>
-                                                <li>Strong communication and teamwork skills</li>
-                                                <li>Ability to work independently and meet deadlines</li>
+                                                <li><?php echo getLangText('Bachelor\'s degree in a relevant field', 'បរិញ្ញាបត្រក្នុងវិស័យពាក់ព័ន្ធ'); ?></li>
+                                                <li><?php echo getLangText('2+ years of experience in a similar role', 'បទពិសោធន៍ ២+ ឆ្នាំក្នុងតួនាទីស្រដៀងគ្នា'); ?></li>
+                                                <li><?php echo getLangText('Strong communication and teamwork skills', 'ជំនាញទំនាក់ទំនង និងការងារជាក្រុមល្អ'); ?></li>
+                                                <li><?php echo getLangText('Ability to work independently and meet deadlines', 'សមត្ថភាពធ្វើការដោយឯករាជ្យ និងបំពេញតាមកាលកំណត់'); ?></li>
                                             </ul>
                                         <?php endif; ?>
                                     </div>
                                     
-                                    <h5 class="border-bottom pb-2 mb-3">Benefits</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Benefits', 'អត្ថប្រយោជន៍'); ?></h5>
                                     <div class="job-benefits">
                                         <?php if (!empty($job['benefits'])): ?>
                                             <?php echo $job['benefits']; ?>
                                         <?php else: ?>
                                             <ul>
-                                                <li>Competitive salary package</li>
-                                                <li>Health insurance</li>
-                                                <li>Professional development opportunities</li>
-                                                <li>Flexible working arrangements</li>
+                                                <li><?php echo getLangText('Competitive salary package', 'កញ្ចប់ប្រាក់ខែប្រកួតប្រជែង'); ?></li>
+                                                <li><?php echo getLangText('Health insurance', 'ធានារ៉ាប់រងសុខភាព'); ?></li>
+                                                <li><?php echo getLangText('Professional development opportunities', 'ឱកាសអភិវឌ្ឍន៍វិជ្ជាជីវៈ'); ?></li>
+                                                <li><?php echo getLangText('Flexible working arrangements', 'ការរៀបចំការងារបត់បែន'); ?></li>
                                             </ul>
                                         <?php endif; ?>
                                     </div>
@@ -909,36 +910,36 @@
                         <div class="modal-body">
                             <form id="jobApplicationForm<?php echo $job['id']; ?>" class="job-application-form">
                                 <div class="mb-3">
-                                    <label for="fullName<?php echo $job['id']; ?>" class="form-label">Full Name *</label>
+                                    <label for="fullName<?php echo $job['id']; ?>" class="form-label"><?php echo getLangText('Full Name', 'ឈ្មោះពេញ'); ?> *</label>
                                     <input type="text" class="form-control" id="fullName<?php echo $job['id']; ?>" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email<?php echo $job['id']; ?>" class="form-label">Email Address *</label>
+                                    <label for="email<?php echo $job['id']; ?>" class="form-label"><?php echo getLangText('Email Address', 'អាសយដ្ឋានអ៊ីមែល'); ?> *</label>
                                     <input type="email" class="form-control" id="email<?php echo $job['id']; ?>" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="phone<?php echo $job['id']; ?>" class="form-label">Phone Number *</label>
+                                    <label for="phone<?php echo $job['id']; ?>" class="form-label"><?php echo getLangText('Phone Number', 'លេខទូរស័ព្ទ'); ?> *</label>
                                     <input type="tel" class="form-control" id="phone<?php echo $job['id']; ?>" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="resume<?php echo $job['id']; ?>" class="form-label">Upload Resume (PDF) *</label>
+                                    <label for="resume<?php echo $job['id']; ?>" class="form-label"><?php echo getLangText('Upload Resume (PDF)', 'ផ្ទុកប្រវត្តិរូបសង្ខេប (PDF)'); ?> *</label>
                                     <input type="file" class="form-control" id="resume<?php echo $job['id']; ?>" accept=".pdf" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="coverLetter<?php echo $job['id']; ?>" class="form-label">Cover Letter</label>
+                                    <label for="coverLetter<?php echo $job['id']; ?>" class="form-label"><?php echo getLangText('Cover Letter', 'លិខិតអម'); ?></label>
                                     <textarea class="form-control" id="coverLetter<?php echo $job['id']; ?>" rows="4"></textarea>
                                 </div>
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" id="agreeTerms<?php echo $job['id']; ?>" required>
                                     <label class="form-check-label" for="agreeTerms<?php echo $job['id']; ?>">
-                                        I agree to the terms and conditions
+                                        <?php echo getLangText('I agree to the terms and conditions', 'ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ'); ?>
                                     </label>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" form="jobApplicationForm<?php echo $job['id']; ?>" class="btn btn-danger">Submit Application</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo getLangText('Cancel', 'បោះបង់'); ?></button>
+                            <button type="submit" form="jobApplicationForm<?php echo $job['id']; ?>" class="btn btn-danger"><?php echo getLangText('Submit Application', 'ដាក់ពាក្យសុំ'); ?></button>
                         </div>
                     </div>
                 </div>
@@ -1086,7 +1087,7 @@
                         <?php echo $job['description']; ?>
                     </div>
                     <div class="job-actions">
-                        <button type="button" class="btn-job-details" data-bs-toggle="modal" data-bs-target="#jobModal<?php echo $job['id']; ?>">View Details</button>
+                        <button type="button" class="btn-job-details" data-bs-toggle="modal" data-bs-target="#jobModal<?php echo $job['id']; ?>"><?php echo getLangText('View Details', 'មើលលម្អិត'); ?></button>
                     </div>
                 </div>
             </div>
@@ -1109,40 +1110,40 @@
                                     </div>
                                     
                                     <div class="mt-3">
-                                        <h6 class="fw-bold">Job Details</h6>
+                                        <h6 class="fw-bold"><?php echo getLangText('Job Details', 'ព័ត៌មានលម្អិតការងារ'); ?></h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
                                                 <i class="fas fa-building text-danger me-2"></i>
-                                                <strong>Company:</strong> <?php echo $job['company']; ?>
+                                                <strong><?php echo getLangText('Company:', 'ក្រុមហ៊ុន៖'); ?></strong> <?php echo $job['company']; ?>
                                             </li>
                                             <li class="mb-2">
                                                 <i class="fas fa-money-bill-wave text-danger me-2"></i>
-                                                <strong>Salary:</strong> <?php echo $job['salary']; ?>
+                                                <strong><?php echo getLangText('Salary:', 'ប្រាក់ខែ៖'); ?></strong> <?php echo $job['salary']; ?>
                                             </li>
                                             <li class="mb-2">
                                                 <i class="fas fa-map-marker-alt text-danger me-2"></i>
-                                                <strong>Location:</strong> <?php echo $job['location']; ?>
+                                                <strong><?php echo getLangText('Location:', 'ទីតាំង៖'); ?></strong> <?php echo $job['location']; ?>
                                             </li>
                                             <li class="mb-2">
                                                 <i class="fas fa-clock text-danger me-2"></i>
-                                                <strong>Job Type:</strong> Full-time
+                                                <strong><?php echo getLangText('Job Type:', 'ប្រភេទការងារ៖'); ?></strong> <?php echo getLangText('Full-time', 'ពេញម៉ោង'); ?>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="border-bottom pb-2 mb-3">Job Description</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Job Description', 'ការពិពណ៌នាការងារ'); ?></h5>
                                     <div class="job-full-description mb-4">
                                         <p><?php echo $job['description']; ?></p>
-                                        <p>This is an excellent opportunity for professionals looking to advance their career in <?php echo strtolower($job['title']); ?>. The role offers a dynamic work environment with opportunities for growth and development.</p>
+                                        <p><?php echo getLangText('This is an excellent opportunity for professionals looking to advance their career in', 'នេះគឺជាឱកាសដ៏ល្អសម្រាប់អ្នកជំនាញដែលចង់អភិវឌ្ឍអាជីពរបស់ពួកគេក្នុង'); ?> <?php echo strtolower($job['title']); ?>. <?php echo getLangText('The role offers a dynamic work environment with opportunities for growth and development.', 'តួនាទីនេះផ្តល់ជូននូវបរិយាកាសការងារដែលមានភាពរស់រវើកជាមួយនឹងឱកាសសម្រាប់ការរីកចម្រើន និងការអភិវឌ្ឍន៍។'); ?></p>
                                     </div>
                                     
-                                    <h5 class="border-bottom pb-2 mb-3">Requirements</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Requirements', 'តម្រូវការ'); ?></h5>
                                     <div class="job-requirements mb-4">
                                         <?php echo $job['requirements']; ?>
                                     </div>
                                     
-                                    <h5 class="border-bottom pb-2 mb-3">Benefits</h5>
+                                    <h5 class="border-bottom pb-2 mb-3"><?php echo getLangText('Benefits', 'អត្ថប្រយោជន៍'); ?></h5>
                                     <div class="job-benefits">
                                         <?php echo $job['benefits']; ?>
                                     </div>
@@ -1166,7 +1167,7 @@
         
         <div class="text-center mt-5">
             <a href="index.php?page=popular-jobs" class="btn-view-all">
-                <span>View All Career Opportunities</span>
+                <span><?php echo getLangText('View All Career Opportunities', 'មើលឱកាសអាជីពទាំងអស់'); ?></span>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
@@ -1177,8 +1178,8 @@
 <div class="container mb-5">
     <div class="row text-center mb-4">
         <div class="col-12">
-            <h2 class="fw-bold text-danger">Latest Announcements</h2>
-            <p class="text-muted">Stay updated with important information from MACA</p>
+            <h2 class="fw-bold text-danger"><?php echo getLangText('Latest Announcements', 'សេចក្តីប្រកាសថ្មីៗ'); ?></h2>
+            <p class="text-muted"><?php echo getLangText('Stay updated with important information from MACA', 'ទទួលបានព័ត៌មានសំខាន់ៗពី MACA'); ?></p>
         </div>
     </div>
     
@@ -1195,42 +1196,17 @@
                 <?php endif; ?>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="badge bg-danger">Announcement</span>
+                        <span class="badge bg-danger"><?php echo getLangText('Announcement', 'សេចក្តីប្រកាស'); ?></span>
                         <small class="text-muted"><?php echo formatDate($announcement['created_at']); ?></small>
                     </div>
                     <h5 class="card-title"><?php echo $announcement['title']; ?></h5>
                     <p class="card-text"><?php echo truncateText(strip_tags($announcement['content']), 120); ?></p>
                 </div>
                 <div class="card-footer bg-white border-0">
-                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#announcementModal<?php echo $announcement['id']; ?>">
-        Read More
-    </button>
+                    <a href="index.php?page=announcement-detail&id=<?php echo $announcement['id']; ?>" class="btn btn-sm btn-outline-danger">
+        <?php echo getLangText('Read More', 'អានបន្ថែម'); ?>
+    </a>
                 </div>
-                <!-- Modal for full announcement -->
-<div class="modal fade" id="announcementModal<?php echo $announcement['id']; ?>" tabindex="-1" aria-labelledby="announcementModalLabel<?php echo $announcement['id']; ?>" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title" id="announcementModalLabel<?php echo $announcement['id']; ?>"><?php echo $announcement['title']; ?></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <?php if ($announcement['image_path']): ?>
-                <img src="<?php echo $announcement['image_path']; ?>" class="img-fluid rounded mb-3" alt="<?php echo $announcement['title']; ?>">
-                <?php endif; ?>
-                <div class="announcement-content">
-                    <?php echo $announcement['content']; ?>
-                </div>
-                <div class="text-muted mt-3">
-                    <small>Posted on: <?php echo formatDate($announcement['created_at']); ?></small>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
             </div>
         </div>
         <?php
@@ -1238,22 +1214,22 @@
         else:
         ?>
         <div class="col-12">
-            <div class="alert alert-info">No announcements available at this time.</div>
+            <div class="alert alert-info"><?php echo getLangText('No announcements available at this time.', 'មិនមានសេចក្តីប្រកាសនៅពេលនេះទេ។'); ?></div>
         </div>
         <?php endif; ?>
     </div>
     
     
     <div class="text-center mt-3">
-        <a href="index.php?page=announcements" class="btn btn-outline-danger">View All Announcements</a>
+        <a href="index.php?page=announcements" class="btn btn-outline-danger"><?php echo getLangText('View All Announcements', 'មើលសេចក្តីប្រកាសទាំងអស់'); ?></a>
     </div>
 </div>
 
 <div class="container mb-5">
     <div class="row text-center mb-4">
         <div class="col-12">
-            <h2 class="fw-bold text-danger">Latest News</h2>
-            <p class="text-muted">Stay updated with the latest news and events from MACA</p>
+            <h2 class="fw-bold text-danger"><?php echo getLangText('Latest News', 'ព័ត៌មានថ្មីៗ'); ?></h2>
+            <p class="text-muted"><?php echo getLangText('Stay updated with the latest news and events from MACA', 'ទទួលបានព័ត៌មាន និងព្រឹត្តិការណ៍ថ្មីៗពី MACA'); ?></p>
         </div>
     </div>
     
@@ -1270,14 +1246,14 @@
                 <?php endif; ?>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="badge bg-danger">News</span>
+                        <span class="badge bg-danger"><?php echo getLangText('News', 'ព័ត៌មាន'); ?></span>
                         <small class="text-muted"><?php echo formatDate($news['created_at']); ?></small>
                     </div>
                     <h5 class="card-title"><?php echo $news['title']; ?></h5>
                     <p class="card-text"><?php echo $news['summary']; ?></p>
                 </div>
                 <div class="card-footer bg-white border-0">
-                    <a href="index.php?page=news-detail&id=<?php echo $news['id']; ?>" class="btn btn-sm btn-outline-danger">Read More</a>
+                    <a href="index.php?page=news-detail&id=<?php echo $news['id']; ?>" class="btn btn-sm btn-outline-danger"><?php echo getLangText('Read More', 'អានបន្ថែម'); ?></a>
                 </div>
             </div>
         </div>
@@ -1286,13 +1262,13 @@
         else:
         ?>
         <div class="col-12">
-            <div class="alert alert-info">No news available at this time.</div>
+            <div class="alert alert-info"><?php echo getLangText('No news available at this time.', 'មិនមានព័ត៌មាននៅពេលនេះទេ។'); ?></div>
         </div>
         <?php endif; ?>
     </div>
     
     <div class="text-center mt-3">
-        <a href="index.php?page=news" class="btn btn-outline-danger">View All News</a>
+        <a href="index.php?page=news" class="btn btn-outline-danger"><?php echo getLangText('View All News', 'មើលព័ត៌មានទាំងអស់'); ?></a>
     </div>
 </div>
 
@@ -1300,11 +1276,11 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 mb-4 mb-lg-0">
-                <h2 class="fw-bold">Ready to Start Your Educational Journey?</h2>
-                <p class="lead">Contact us today to learn more about our programs and how we can help you achieve your academic and career goals.</p>
+                <h2 class="fw-bold"><?php echo getLangText('Ready to Start Your Educational Journey?', 'ត្រៀមខ្លួនចាប់ផ្តើមដំណើរអប់រំរបស់អ្នកហើយឬនៅ?'); ?></h2>
+                <p class="lead"><?php echo getLangText('Contact us today to learn more about our programs and how we can help you achieve your academic and career goals.', 'ទាក់ទងមកយើងថ្ងៃនេះដើម្បីស្វែងយល់បន្ថែមអំពីកម្មវិធីរបស់យើង និងរបៀបដែលយើងអាចជួយអ្នកឱ្យសម្រេចបាននូវគោលដៅសិក្សា និងអាជីពរបស់អ្នក។'); ?></p>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a href="index.php?page=contact" class="btn btn-light text-danger">Contact Us</a>
+                <a href="index.php?page=contact" class="btn btn-light text-danger"><?php echo getLangText('Contact Us', 'ទំនាក់ទំនងយើង'); ?></a>
             </div>
         </div>
     </div>
@@ -2588,6 +2564,13 @@
         height: 50px;
         font-size: 1.2rem;
     }
+}
+
+.py-5 {
+  border-radius: 13px;
+  padding: 3rem 3rem;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 }
 </style>
 

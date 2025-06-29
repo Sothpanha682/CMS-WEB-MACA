@@ -11,7 +11,7 @@
     
     <div class="row mb-5 align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
-            <img src="assets/images/career-counselling.jpg" alt="Career Counselling" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400?text=Career+Counselling'">
+            <img src="/assets/images/logomaca.png" alt="Career Counselling" class="img-fluid rounded shadow-sm" onerror="this.src='https://scontent.fpnh11-1.fna.fbcdn.net/v/t39.30808-6/326250982_1536743920139114_9196559976363727837_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH-HrvvX9odH9Eo1OMPO92sx1W6y2B-21HHVbrLYH7bUcdx28rT5WYIKdJZutcww4z7nkCizU7LKk4crySvFI3h&_nc_ohc=ZCWRsz-ecXcQ7kNvwGkOi2O&_nc_oc=Adksgm8QzUpyU_4BWuXFcwu3a43aFodLUAA4ophLiXZouDxskBPTmAT6aUr6wYndX1c&_nc_zt=23&_nc_ht=scontent.fpnh11-1.fna&_nc_gid=pmn1iWKIR08AkGwBSKj0Ew&oh=00_AfOJG7yz-EOeuk3r24lrSSISnW1pLNqfGpZahWEXbLEXvg&oe=6862CA0C'">
         </div>
         <div class="col-lg-6">
             <h2 class="text-danger mb-3">Find Your Path to Success</h2>
@@ -157,7 +157,7 @@
                                 echo '<div class="carousel-item ' . ($index === 0 ? 'active' : '') . '">';
                                 echo '<div class="row align-items-center">';
                                 echo '<div class="col-md-3 text-center">';
-                                echo '<img src="assets/images/' . $testimonial['image'] . '" class="rounded-circle img-fluid mx-auto" style="max-width: 150px;" alt="' . $testimonial['name'] . '" onerror="this.src=\'https://via.placeholder.com/150x150?text=' . substr($testimonial['name'], 0, 1) . '\'">';
+                                echo '<img src="assets/images/' . $testimonial['image'] . '" class="rounded-circle img-fluid mx-auto" style="max-width: 150px;" alt="' . $testimonial['name'] . '" onerror="this.src=\'' . substr($testimonial['name'], 0, 1) . '\'">';
                                 echo '</div>';
                                 echo '<div class="col-md-9">';
                                 echo '<div class="p-3">';

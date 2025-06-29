@@ -14,19 +14,32 @@
                         $email = sanitize($_POST['email']);
                         $subject = sanitize($_POST['subject']);
                         $message = sanitize($_POST['message']);
-                        
-                        // Save message to database
-                        try {
-                            $stmt = $pdo->prepare("INSERT INTO contact_messages (name, email, subject, message, is_read, created_at) VALUES (:name, :email, :subject, :message, 0, NOW())");
-                            $stmt->bindParam(':name', $name);
-                            $stmt->bindParam(':email', $email);
-                            $stmt->bindParam(':subject', $subject);
-                            $stmt->bindParam(':message', $message);
-                            $stmt->execute();
-                            
-                            echo '<div class="alert alert-success">Thank you for your message! We will get back to you soon.</div>';
-                        } catch(PDOException $e) {
-                            echo '<div class="alert alert-danger">Sorry, there was an error sending your message. Please try again later.</div>';
+
+                        $allowed_domains = [
+                            'gmail.com', 'googlemail.com', // Gmail
+                            'yahoo.com', 'ymail.com', // Yahoo Mail
+                            'outlook.com', 'hotmail.com', 'live.com', 'msn.com', // Outlook.com
+                            'protonmail.com', 'proton.me' // ProtonMail
+                        ];
+
+                        $email_domain = strtolower(substr(strrchr($email, "@"), 1));
+
+                        if (!in_array($email_domain, $allowed_domains)) {
+                            echo '<div class="alert alert-danger">Sorry, we only accept messages from Gmail, Yahoo Mail, Outlook.com, and ProtonMail addresses.</div>';
+                        } else {
+                            // Save message to database
+                            try {
+                                $stmt = $pdo->prepare("INSERT INTO contact_messages (name, email, subject, message, is_read, created_at) VALUES (:name, :email, :subject, :message, 0, NOW())");
+                                $stmt->bindParam(':name', $name);
+                                $stmt->bindParam(':email', $email);
+                                $stmt->bindParam(':subject', $subject);
+                                $stmt->bindParam(':message', $message);
+                                $stmt->execute();
+                                
+                                echo '<div class="alert alert-success">Thank you for your message! We will get back to you soon.</div>';
+                            } catch(PDOException $e) {
+                                echo '<div class="alert alert-danger">Sorry, there was an error sending your message. Please try again later.</div>';
+                            }
                         }
                     }
                     ?>

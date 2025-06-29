@@ -34,19 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['api_key'])) {
         $fileContent = "<?php\n";
         $fileContent .= "// This file contains API keys for various services\n";
         $fileContent .= "// IMPORTANT: Keep this file secure and never expose these keys publicly\n\n";
-        $fileContent .= "// DeepSeek API key for the AI assistant\n";
-        $fileContent .= "define('DEEPSEEK_API_KEY', '" . addslashes($apiKey) . "');\n\n";
+        $fileContent .= "// AI API key for the AI assistant (e.g., Google Gemini)\n";
+        $fileContent .= "define('GEMINI_API_KEY', '" . addslashes($apiKey) . "');\n\n";
         $fileContent .= "// You can add other API keys here as needed\n";
         $fileContent .= "// define('OTHER_API_KEY', 'your_other_api_key');\n";
         $fileContent .= "?>";
         
         // Write to file
         if (file_put_contents($apiKeysFile, $fileContent)) {
-            $message = 'DeepSeek API key has been successfully updated.';
+            $message = 'AI API key has been successfully updated.';
             $success = true;
             
             // Log the action
-            error_log('Admin user ID ' . $_SESSION['user_id'] . ' updated the DeepSeek API key');
+            error_log('Admin user ID ' . $_SESSION['user_id'] . ' updated the AI API key');
         } else {
             $message = 'Failed to update API key. Please check file permissions.';
         }
@@ -55,9 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['api_key'])) {
 
 // Get current API key if it exists
 $currentApiKey = '';
-if (defined('DEEPSEEK_API_KEY')) {
-    $currentApiKey = DEEPSEEK_API_KEY;
-    if ($currentApiKey === 'YOUR_DEEPSEEK_API_KEY') {
+// Ensure GEMINI_API_KEY is defined, even if with a placeholder, to prevent errors
+if (!defined('GEMINI_API_KEY')) {
+    define('GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY');
+}
+// Now, safely use GEMINI_API_KEY
+if (defined('GEMINI_API_KEY')) {
+    $currentApiKey = GEMINI_API_KEY;
+    if ($currentApiKey === 'YOUR_GEMINI_API_KEY') {
         $currentApiKey = '';
     }
 }
@@ -68,7 +73,7 @@ if (defined('DEEPSEEK_API_KEY')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Set DeepSeek API Key - MACA Admin</title>
+    <title>Set AI API Key - MACA Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
@@ -96,8 +101,8 @@ if (defined('DEEPSEEK_API_KEY')) {
 </head>
 <body>
     <div class="container">
-        <h1>Set DeepSeek API Key</h1>
-        <p class="lead">Configure the DeepSeek API key for the AI assistant.</p>
+        <h1>Set AI API Key</h1>
+        <p class="lead">Configure the AI API key for the AI assistant.</p>
         
         <?php if (!empty($message)): ?>
             <div class="alert alert-<?php echo $success ? 'success' : 'danger'; ?>" role="alert">
@@ -108,13 +113,13 @@ if (defined('DEEPSEEK_API_KEY')) {
         <div class="api-key-form">
             <form method="post" action="">
                 <div class="form-group">
-                    <label for="api_key">DeepSeek API Key:</label>
+                    <label for="api_key">AI API Key:</label>
                     <input type="text" class="form-control" id="api_key" name="api_key" 
                            value="<?php echo htmlspecialchars($currentApiKey); ?>" 
-                           placeholder="Enter your DeepSeek API key">
+                           placeholder="Enter your AI API key">
                     <small class="form-text text-muted">
-                        This key is used to authenticate requests to the DeepSeek AI API.
-                        Get your API key from the <a href="https://deepseek.com" target="_blank">DeepSeek website</a>.
+                        This key is used to authenticate requests to the AI API.
+                        Please refer to the documentation of your chosen AI provider (e.g., Google Gemini) for instructions on obtaining an API key.
                     </small>
                 </div>
                 <button type="submit" class="btn btn-primary">Save API Key</button>
@@ -132,10 +137,10 @@ if (defined('DEEPSEEK_API_KEY')) {
         
         <div class="card">
             <div class="card-header">
-                <h5>About the DeepSeek API Integration</h5>
+                <h5>About the AI API Integration</h5>
             </div>
             <div class="card-body">
-                <p>The DeepSeek API powers the AI assistant on your website, allowing it to provide intelligent responses to user questions about majors, careers, and educational opportunities.</p>
+                <p>The AI API powers the AI assistant on your website, allowing it to provide intelligent responses to user questions about majors, careers, and educational opportunities.</p>
                 
                 <h6>Benefits:</h6>
                 <ul>
@@ -148,7 +153,7 @@ if (defined('DEEPSEEK_API_KEY')) {
                 <h6>Implementation Details:</h6>
                 <ul>
                     <li>The AI assistant is accessible via the chat widget on your website</li>
-                    <li>Responses are generated in real-time using the DeepSeek API</li>
+                    <li>Responses are generated in real-time using the configured AI API</li>
                     <li>Fallback responses are provided if the API is unavailable</li>
                     <li>User questions and AI responses are not stored permanently</li>
                 </ul>
@@ -171,7 +176,7 @@ if (defined('DEEPSEEK_API_KEY')) {
                 
                 // Send test request
                 $.ajax({
-                    url: '../api/test-deepseek.php',
+                    url: '../api/test-ai-connection.php', // Assuming a generic test file
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {

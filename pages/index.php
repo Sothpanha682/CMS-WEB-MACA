@@ -88,7 +88,8 @@ $allowed_pages = [
     'talkshow-detail', 'roadshow-detail',
     'popular-majors', 'popular-jobs',
     'manage-messages',
-    '404'
+    '404','edit-internship', 'talkshow', 'roadshow', 'career-paths', 'popular-majors', 'popular-jobs'
+    ,'add-internship', 'edit-internship', 'delete-roadshow', 'delete-talkshow', 'delete-internship', 'manage-internships','program/online-recruitment'
 ];
 
 // Check if the page exists and is allowed

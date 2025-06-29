@@ -62,6 +62,10 @@ if (isset($_GET['action'])) {
     }
     
     // Add other actions as needed
+    elseif ($action == 'delete-job-posting' && isset($_POST['id'])) {
+        require_once 'actions/delete-job-posting.php';
+        exit;
+    }
 }
 
 // Get the requested page
@@ -69,6 +73,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Sanitize the page name
 $page = preg_replace('/[^a-zA-Z0-9_\/\-]/', '', $page); // Allow slashes in page names
+
 
 // Define allowed pages
 $allowed_pages = [
@@ -84,7 +89,7 @@ $allowed_pages = [
     'program/online-learning', 'program/career-counselling',
     'manage-talkshow', 'add-talkshow', 'edit-talkshow',
     'manage-roadshow', 'add-roadshow', 'edit-roadshow', 'delete-roadshow',
-    'program/talkshow', 'program/roadshow',
+    'program/talkshow', 'program/roadshow', 'program/internship', // Added 'program/internship'
     'talkshow-detail', 'roadshow-detail',
     'popular-majors', 'popular-jobs', // Added these direct paths
     '404','talkshow','roadshow','career-paths','popular-majors','popular-jobs',
@@ -92,14 +97,23 @@ $allowed_pages = [
     'career-paths-detail', 'popular-majors-detail', 'popular-jobs-detail',
     'logout', 'search', 'search-results', 'search-career-paths',
     'search-popular-majors', 'search-popular-jobs', 'search-announcements',
-    'search-news', 'search-roadshow',
-    'search-team-members', 'search-users', 'search-media',
+    'search-news', 'search-roadshow','internship','program/internship/internship', // Added internship page
+    'search-team-members', 'search-users', 'search-media','announcement-detail',
     'search-career-paths-detail', 'search-popular-majors-detail',
     'search-popular-jobs-detail', 'search-announcements-detail',    
     'manage-popular-career', 'edit-popular-career', 'add-popular-career','announcement-detail','talkshow','roadshow',
     'program/talkshow/talkshow', // Added the direct path for talkshow page with search
     'program/roadshow/roadshow', // Added the direct path for roadshow page with search
+    'manage-intern-news', 'add-intern-news', 'edit-intern-news', // Added intern news pages
+    'program/online-recruitment','recruitment-job-view',  //online recruitment page
+    'manage-messages', 'manage-recruitment', 'add-job-posting', 'edit-job-posting',
+    'manage-applications', 'manage-recruitment-applications', 'view-job-applications',
+    'manage-online-courses', 'add-online-course', 'edit-online-course',
+    
+    
 ];
+
+
 
 // Check if the page exists and is allowed
 if (!in_array($page, $allowed_pages) || !file_exists("pages/{$page}.php")) {
@@ -112,7 +126,14 @@ if (!in_array($page, $allowed_pages) || !file_exists("pages/{$page}.php")) {
 }
 
 // Check if user is logged in for admin pages
-$admin_pages = ['dashboard', 'add-announcement', 'edit-announcement', 'add-news', 'edit-news', 'manage-media', 'manage-site-settings', 'manage-users', 'manage-team-members', 'add-team-member', 'edit-team-member'];
+$admin_pages = [
+    'dashboard', 'add-announcement', 'edit-announcement', 'add-news', 'edit-news', 
+    'manage-media', 'manage-site-settings', 'manage-users', 'manage-team-members', 
+    'add-team-member', 'edit-team-member', 'manage-recruitment', 'add-job-posting', 
+    'edit-job-posting', 'manage-applications', 'manage-recruitment-applications', 
+    'view-job-applications', 'manage-online-courses', 'add-online-course', 
+    'edit-online-course', 'manage-intern-news', 'add-intern-news', 'edit-intern-news',
+];
 
 if (in_array($page, $admin_pages) && !isLoggedIn()) {
   $_SESSION['message'] = "You must be logged in to access this page.";

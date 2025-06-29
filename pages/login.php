@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_role'] = $user['role']; // Store user role
+            $_SESSION['is_admin'] = ($user['role'] === 'admin') ? 1 : 0; // Set is_admin session variable
             $_SESSION['message'] = "Welcome back, " . $user['username'] . "!";
             $_SESSION['message_type'] = "success";
             

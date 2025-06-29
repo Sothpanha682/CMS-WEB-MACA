@@ -2,7 +2,7 @@
 /**
  * AI Integration API
  * 
- * This file provides integration with external AI APIs like DeepSeek
+ * This file provides integration with external AI APIs
  * It handles authentication, request formatting, and response parsing
  */
 
@@ -10,6 +10,9 @@
 if (!defined('INCLUDED')) {
     define('INCLUDED', true);
 }
+
+// Include API keys
+require_once __DIR__ . '/../config/api-keys.php';
 
 class AIIntegration {
     private $apiKey;
@@ -26,33 +29,19 @@ class AIIntegration {
      * @param string $apiKey The API key for authentication
      * @param string $model The model to use (optional)
      */
-    public function __construct($provider = 'deepseek', $apiKey = null, $model = null) {
+    public function __construct($provider = 'gemini', $apiKey = null, $model = null) {
         $this->provider = strtolower($provider);
-        // Always use the hardcoded DeepSeek API key if no key is provided
-        $this->apiKey = $apiKey ?: getenv('AI_API_KEY') ?: 'sk-6e3d09fe05594cb88181f9cb89b457d6';
         
-        // Set defaults based on provider
-        switch ($this->provider) {
-            case 'openai':
-                $this->apiEndpoint = 'https://api.openai.com/v1/chat/completions';
-                $this->model = $model ?: 'gpt-3.5-turbo';
-                break;
-            case 'azure':
-                $this->apiEndpoint = getenv('AZURE_OPENAI_ENDPOINT');
-                $this->model = $model ?: 'gpt-35-turbo';
-                break;
-            case 'anthropic':
-                $this->apiEndpoint = 'https://api.anthropic.com/v1/messages';
-                $this->model = $model ?: 'claude-2';
-                break;
-            case 'deepseek':
-            default:
-                // Default to DeepSeek even if an unsupported provider is specified
-                $this->provider = 'deepseek';
-                $this->apiEndpoint = 'https://api.deepseek.com/v1/chat/completions';
-                $this->model = $model ?: 'deepseek-chat';
-                break;
+        // Load API key: prioritize provided key, then fallback to hardcoded Gemini key for development/testing
+        $this->apiKey = $apiKey;
+        if (empty($this->apiKey)) {
+            $this->apiKey = 'AIzaSyBKSsNU9umvHRaaGuWGqCWCu5repYcTmg0'; // Placeholder/development Gemini API key
+            error_log("Warning: Using hardcoded Gemini API key. Please configure your API key in admin/set-api-key.php.");
         }
+        
+        // Set defaults for Gemini
+        $this->apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        $this->model = $model ?: 'gemini-pro';
         
         // Default parameters - optimized for educational responses
         $this->maxTokens = 1000; // Increased for more detailed responses
@@ -120,15 +109,16 @@ class AIIntegration {
      */
     private function formatRequest($question, $context) {
         // Enhanced system prompt for better educational responses
-        $systemPrompt = "You are MACA's educational assistant, an expert in academic and career guidance. " .
-                        "Your purpose is to help students make informed decisions about their educational and career paths. " .
-                        "Provide detailed, accurate, and helpful information about majors, careers, job prospects, and educational opportunities. " .
-                        "When appropriate, include links to relevant pages on the MACA website using the format <a href='index.php?page=PAGE_NAME'>Link Text</a>. " .
-                        "Common pages include: popular-majors, popular-jobs, program/talkshow, program/roadshow, program/online-learning, contact, about. " .
-                        "Always be encouraging and supportive of students' educational journeys. " .
-                        "Format your responses with HTML paragraphs (<p>) and lists (<ul>, <li>) when appropriate for better readability. " .
-                        "Provide unique, detailed responses for each question, even if they seem similar to previous questions. " .
-                        "For questions about specific majors or careers, include information about required education, skills, job prospects, and salary ranges when relevant.";
+        $systemPrompt = "You are MACA's highly intelligent and empathetic educational assistant, an expert in academic and career guidance. " .
+                        "Your core purpose is to empower students to make well-informed, strategic decisions about their educational and career trajectories. " .
+                        "Deliver comprehensive, precise, and actionable insights on a wide array of topics including university majors, career paths, job market trends, and diverse educational opportunities. " .
+                        "Whenever relevant, seamlessly integrate internal links to specific MACA website pages using the format <a href='index.php?page=PAGE_NAME'>Link Text</a>. " .
+                        "Prioritize links to: popular-majors, popular-jobs, program/talkshow, program/roadshow, program/online-learning, contact, and about. " .
+                        "Maintain an encouraging, supportive, and inspiring tone throughout all interactions, fostering confidence in students' educational journeys. " .
+                        "Structure your responses meticulously with HTML paragraphs (<p>), ordered lists (<ol>, <li>), and unordered lists (<ul>, <li>) for optimal readability and clarity. " .
+                        "Generate distinct, deeply analytical, and highly detailed responses for every query, even if the subject matter appears similar to previous questions. " .
+                        "For inquiries concerning specific majors or careers, provide exhaustive information encompassing required educational qualifications, essential skills, future job prospects, and realistic salary ranges, citing credible sources where applicable. " .
+                        "Strive to anticipate follow-up questions and provide a holistic perspective, guiding users towards deeper understanding and practical next steps.";
         
         // Get conversation history if available
         $messages = [];
@@ -145,42 +135,25 @@ class AIIntegration {
         // Add the current question
         $messages[] = ['role' => 'user', 'content' => $question];
         
-        switch ($this->provider) {
-            case 'openai':
-                return [
-                    'model' => $this->model,
-                    'messages' => array_merge([['role' => 'system', 'content' => $systemPrompt]], $messages),
-                    'max_tokens' => $this->maxTokens,
-                    'temperature' => $this->temperature
-                ];
-                
-            case 'azure':
-                return [
-                    'messages' => array_merge([['role' => 'system', 'content' => $systemPrompt]], $messages),
-                    'max_tokens' => $this->maxTokens,
-                    'temperature' => $this->temperature
-                ];
-                
-            case 'anthropic':
-                return [
-                    'model' => $this->model,
-                    'messages' => $messages,
-                    'system' => $systemPrompt,
-                    'max_tokens' => $this->maxTokens,
-                    'temperature' => $this->temperature
-                ];
-            case 'deepseek':
-            default:
-                return [
-                    'model' => $this->model,
-                    'messages' => array_merge([['role' => 'system', 'content' => $systemPrompt]], $messages),
-                    'max_tokens' => $this->maxTokens,
-                    'temperature' => $this->temperature,
-                    'top_p' => 0.9, // Added for more focused responses
-                    'presence_penalty' => 0.1, // Slight penalty to avoid repetition
-                    'frequency_penalty' => 0.1 // Slight penalty to avoid repetition
-                ];
+        // Gemini uses 'contents' and 'parts' for messages
+        $formattedMessages = [];
+        foreach ($messages as $msg) {
+            $formattedMessages[] = [
+                'role' => ($msg['role'] === 'system' || $msg['role'] === 'assistant') ? 'model' : 'user',
+                'parts' => [['text' => $msg['content']]]
+            ];
         }
+        // Add system prompt as a user message at the beginning for Gemini
+        array_unshift($formattedMessages, ['role' => 'user', 'parts' => [['text' => $systemPrompt]]]);
+
+        return [
+            'contents' => $formattedMessages,
+            'generationConfig' => [
+                'maxOutputTokens' => $this->maxTokens,
+                'temperature' => $this->temperature,
+                'topP' => 0.9,
+            ],
+        ];
     }
     
     /**
@@ -199,18 +172,11 @@ class AIIntegration {
         
         // Add provider-specific headers
         switch ($this->provider) {
-            case 'openai':
-                $headers[] = "Authorization: Bearer {$this->apiKey}";
+            case 'gemini':
+                $headers[] = "x-goog-api-key: {$this->apiKey}";
                 break;
-            case 'azure':
-                $headers[] = "api-key: {$this->apiKey}";
-                break;
-            case 'anthropic':
-                $headers[] = "x-api-key: {$this->apiKey}";
-                $headers[] = "anthropic-version: 2023-06-01";
-                break;
-            case 'deepseek':
             default:
+                // This case should ideally not be reached if provider is always 'gemini'
                 $headers[] = "Authorization: Bearer {$this->apiKey}";
                 break;
         }
@@ -246,12 +212,14 @@ class AIIntegration {
         
         // Check HTTP status code
         if ($httpCode < 200 || $httpCode >= 300) {
+            error_log("API request failed with HTTP code {$httpCode}: {$response}"); // Log full response on error
             throw new Exception("API request failed with HTTP code {$httpCode}: {$response}");
         }
         
         // Decode the response
         $decodedResponse = json_decode($response, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
+            error_log("Failed to decode API response: " . json_last_error_msg() . " Raw response: " . $response); // Log raw response if JSON decode fails
             throw new Exception("Failed to decode API response: " . json_last_error_msg());
         }
         
@@ -267,20 +235,18 @@ class AIIntegration {
      */
     private function parseResponse($response) {
         switch ($this->provider) {
-            case 'openai':
-            case 'azure':
-                if (isset($response['choices'][0]['message']['content'])) {
-                    return $response['choices'][0]['message']['content'];
+            case 'gemini':
+                if (isset($response['candidates'][0]['content']['parts'][0]['text'])) {
+                    return $response['candidates'][0]['content']['parts'][0]['text'];
+                }
+                // Check for Gemini specific error messages
+                if (isset($response['error']['message'])) {
+                    error_log("Gemini API error: " . $response['error']['message']);
+                    throw new Exception("Gemini API error: " . $response['error']['message']);
                 }
                 break;
-                
-            case 'anthropic':
-                if (isset($response['content'][0]['text'])) {
-                    return $response['content'][0]['text'];
-                }
-                break;
-            case 'deepseek':
             default:
+                // This case should ideally not be reached if provider is always 'gemini'
                 if (isset($response['choices'][0]['message']['content'])) {
                     return $response['choices'][0]['message']['content'];
                 }
@@ -337,7 +303,7 @@ class AIIntegration {
      * @return string A fallback response
      */
     public function getFallbackResponse($question) {
-        return "<p>I apologize, but I'm currently having trouble accessing my knowledge base. Please try asking your question again in a moment.</p>
+        return "<p>I apologize, but I'm currently experiencing technical difficulties and cannot access my full knowledge base. Please try asking your question again in a moment.</p>
         <p>In the meantime, you might find helpful information on our website:</p>
         <ul>
             <li><a href='index.php?page=popular-majors'>Popular Majors</a></li>
@@ -346,5 +312,34 @@ class AIIntegration {
             <li><a href='index.php?page=contact'>Contact Us</a> for personalized assistance</li>
         </ul>";
     }
+}
+
+// Handle incoming API requests
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+    
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+    
+    $question = $data['question'] ?? '';
+    $history = $data['history'] ?? [];
+    $provider = $data['provider'] ?? 'gemini'; // Default to gemini if not specified
+    $apiKey = $data['apiKey'] ?? null; // Pass API key from frontend if available
+
+    if (empty($question)) {
+        echo json_encode(['error' => 'No question provided.']);
+        exit;
+    }
+
+    try {
+        $aiIntegration = new AIIntegration($provider, $apiKey);
+        $response = $aiIntegration->generateResponse($question, ['history' => $history]);
+        echo json_encode(['response' => $response]);
+    } catch (Exception $e) {
+        error_log("AI Integration Error: " . $e->getMessage());
+        $aiIntegration = new AIIntegration($provider, $apiKey); // Re-instantiate to get fallback
+        echo json_encode(['error' => $e->getMessage(), 'response' => $aiIntegration->getFallbackResponse($question)]);
+    }
+    exit;
 }
 ?>

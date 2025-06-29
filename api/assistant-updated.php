@@ -33,103 +33,12 @@ if (empty($question)) {
 // Log the question for debugging
 error_log('Question received: ' . $question);
 
-// Check if DeepSeek API key is configured
-if (!defined('DEEPSEEK_API_KEY') || DEEPSEEK_API_KEY === 'YOUR_DEEPSEEK_API_KEY') {
-    // Use fallback response if API key is not configured
-    $response = getFallbackResponse($question);
-} else {
-    // Call DeepSeek API to get a response
-    $response = callDeepSeekAPI($question);
-}
+// Always use the fallback response as DeepSeek API is being removed
+$response = getFallbackResponse($question);
 
 // Return the response
 echo json_encode($response);
 
-/**
- * Call DeepSeek API to get a response
- * 
- * @param string $question The user's question
- * @return array The response with text and suggestions
- */
-function callDeepSeekAPI($question) {
-    // DeepSeek API endpoint
-    $apiUrl = 'https://api.deepseek.com/v1/chat/completions';
-    
-    // System prompt to guide the AI's responses
-    $systemPrompt = "You are MACA's AI assistant, designed to help students with questions about majors, careers, and educational opportunities. 
-    Provide helpful, accurate, and concise information. 
-    When appropriate, mention MACA's services like career counseling, talkshows, or roadshows.
-    Always include 3 relevant follow-up questions at the end of your response.";
-    
-    // Prepare the request payload
-    $payload = [
-        'model' => 'deepseek-chat',
-        'messages' => [
-            [
-                'role' => 'system',
-                'content' => $systemPrompt
-            ],
-            [
-                'role' => 'user',
-                'content' => $question
-            ]
-        ],
-        'temperature' => 0.7,
-        'max_tokens' => 800
-    ];
-    
-    // Initialize cURL session
-    $ch = curl_init($apiUrl);
-    
-    // Set cURL options
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . DEEPSEEK_API_KEY
-    ]);
-    
-    // Execute cURL request
-    $result = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    
-    // Check for errors
-    if (curl_errno($ch)) {
-        error_log('cURL error: ' . curl_error($ch));
-        curl_close($ch);
-        return getFallbackResponse($question);
-    }
-    
-    // Close cURL session
-    curl_close($ch);
-    
-    // Process the response
-    if ($httpCode == 200) {
-        $response = json_decode($result, true);
-        
-        if (isset($response['choices'][0]['message']['content'])) {
-            $aiResponse = $response['choices'][0]['message']['content'];
-            
-            // Extract suggestions from the response
-            $suggestions = extractSuggestions($aiResponse);
-            
-            // Clean the response by removing the suggestions section
-            $cleanResponse = cleanResponse($aiResponse);
-            
-            return [
-                'response' => $cleanResponse,
-                'suggestions' => $suggestions
-            ];
-        }
-    }
-    
-    // Log the error
-    error_log('DeepSeek API error: HTTP code ' . $httpCode . ', Response: ' . $result);
-    
-    // Return fallback response if API call fails
-    return getFallbackResponse($question);
-}
 
 /**
  * Extract suggestions from the AI response

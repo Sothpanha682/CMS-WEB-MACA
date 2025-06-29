@@ -6,6 +6,10 @@ body {
   color: #333;
 }
 
+body.lang-kh {
+  font-family: "Kantumruy Pro", sans-serif;
+}
+
 /* Navbar styles */
 .navbar-light .navbar-nav .nav-link {
   color: #333;

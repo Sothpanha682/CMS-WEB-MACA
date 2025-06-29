@@ -1,25 +1,36 @@
-/* Add Khmer font support */
-@font-face {
-  font-family: "Khmer S4";
-  src: url("../fonts/KhmerS4.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Apply Khmer font to Khmer text */
-.khmer-text {
-  font-family: "Khmer S4", sans-serif;
-}
-
 /* General styling */
 body {
   font-family: "Roboto", Arial, sans-serif;
   color: #333;
   line-height: 1.6;
 }
+.major-description,
+.modal-title,
+.modal-body,
+.card-title,
+.card-text {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-weight: normal; /* Changed to normal to allow for more specific weight control */
+}
 
-body.lang-kh {
-  font-family: "Khmer S4", sans-serif;
+body.lang-kh,
+body.lang-kh h1,
+body.lang-kh h2,
+body.lang-kh h3,
+body.lang-kh h4,
+body.lang-kh h5,
+body.lang-kh h6,
+body.lang-kh p,
+body.lang-kh span,
+body.lang-kh a,
+body.lang-kh li,
+body.lang-kh div,
+body.lang-kh .modal-title,
+body.lang-kh .modal-body,
+body.lang-kh .card-title,
+body.lang-kh .card-text {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-weight: normal; /* Changed to normal to allow for more specific weight control */
 }
 
 /* Header styling */

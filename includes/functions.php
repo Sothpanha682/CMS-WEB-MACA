@@ -20,7 +20,7 @@ function isLoggedIn() {
  * @return bool True if user is an admin, false otherwise
  */
 function isAdmin() {
-    return isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1;
+    return isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin';
 }
 
 /**
@@ -100,13 +100,21 @@ function generateRandomString($length = 10) {
  * @return string Sanitized data
  */
 function sanitize($data) {
-    global $conn;
+    // Use PDO for sanitization if available, otherwise fall back to basic sanitization
+    global $pdo; // Assuming $pdo is the PDO connection
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    if ($conn) {
-        $data = mysqli_real_escape_string($conn, $data);
-    }
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8'); // Ensure proper HTML escaping
+
+    // If PDO connection is available, use its quote method for string escaping
+    // However, for parameters used in prepared statements, this might be redundant
+    // and could double-escape. For $_GET/$_POST, htmlspecialchars is usually sufficient
+    // before using in SQL queries with prepared statements.
+    // For direct use in SQL (not recommended), PDO->quote() would be appropriate.
+    // Given the context of online-recruitment.php, parameters are used with prepared statements,
+    // so htmlspecialchars is the primary sanitization needed here.
+    // The mysqli_real_escape_string was incorrect for a PDO context.
+    
     return $data;
 }
 
@@ -927,31 +935,113 @@ function getTalkshowsByEventDate($pdo, $limit = 10, $offset = 0) {
 }
 
 /**
- * Generate video embed code for YouTube or other video URLs.
- *
- * @param string $videoUrl The URL of the video.
- * @return string The HTML embed code.
+ * Get all intern news
+ * 
+ * @param PDO $pdo Database connection
+ * @param int $limit Number of intern news to get
+ * @param int $offset Offset for pagination
+ * @param bool $active_only Get only active intern news
+ * @param bool $featured_only Get only featured intern news
+ * @return array Intern news
  */
-function getVideoEmbedCode($videoUrl) {
-    // Check if it's a YouTube URL
-    if (strpos($videoUrl, 'youtube.com/watch?v=') !== false || strpos($videoUrl, 'youtu.be/') !== false) {
-        $videoId = '';
-        if (strpos($videoUrl, 'youtube.com/watch?v=') !== false) {
-            parse_str(parse_url($videoUrl, PHP_URL_QUERY), $params);
-            $videoId = $params['v'] ?? '';
-        } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
-            $videoId = basename(parse_url($videoUrl, PHP_URL_PATH));
-        }
-
-        if ($videoId) {
-            return '<iframe src="https://www.youtube.com/embed/' . htmlspecialchars($videoId) . '" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>';
-        }
+function getInternNews($pdo, $limit = 10, $offset = 0, $active_only = true, $featured_only = false) {
+    if (!$pdo) {
+        return [];
     }
     
-    // Fallback for other video URLs (e.g., direct video files)
-    // You might want to add more specific handling for Vimeo, etc.
-    return '<video controls class="w-100 h-100"><source src="' . htmlspecialchars($videoUrl) . '" type="video/mp4">Your browser does not support the video tag.</video>';
+    try {
+        $sql = "SELECT * FROM intern_news";
+        $conditions = [];
+        
+        if ($active_only) {
+            $conditions[] = "is_active = 1";
+        }
+        
+        if ($featured_only) {
+            $conditions[] = "is_featured = 1";
+        }
+        
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(" AND ", $conditions);
+        }
+        
+        $sql .= " ORDER BY created_at DESC LIMIT :limit OFFSET :offset";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error fetching intern news: " . $e->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Get intern news by ID
+ *
+ * @param PDO $pdo Database connection
+ * @param int $id Intern news ID
+ * @return array|null Intern news data or null if not found
+ */
+function getInternNewsById($pdo, $id) {
+    if (!$pdo) {
+        return null;
+    }
+
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM intern_news WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $news = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $news ?: null;
+    } catch (PDOException $e) {
+        error_log("Error fetching intern news by ID: " . $e->getMessage());
+        return null;
+    }
+}
+
+/**
+ * Get intern news by category
+ *
+ * @param PDO $pdo Database connection
+ * @param string $category Category name
+ * @param int $limit Number of intern news to get
+ * @param int $offset Offset for pagination
+ * @return array Intern news
+ */
+function getInternNewsByCategory($pdo, $category, $limit = 10, $offset = 0) {
+    if (!$pdo) {
+        return [];
+    }
+
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM intern_news WHERE category = :category AND is_active = 1 ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+        $stmt->bindParam(':category', $category);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error fetching intern news by category: " . $e->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Generate embed code for a given video URL (currently supports YouTube)
+ *
+ * @param string $videoUrl The URL of the video
+ * @return string The HTML embed code for the video, or an empty string if not supported
+ */
+function getVideoEmbedCode($videoUrl) {
+    // YouTube
+    if (preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|)([\w-]{11})(?:(?:\?|&).*)?/', $videoUrl, $matches)) {
+        $videoId = $matches[1];
+        return '<iframe src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+    // Add support for other video platforms here if needed
+    
+    return ''; // Return empty string if video platform is not supported
 }

@@ -62,38 +62,155 @@ if (isset($_SESSION['redirect_to'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $site_name; ?></title>
+    <?php
+    $page_title = $site_name;
+    $page_description = "MACA is Cambodia's leading platform for students to explore popular university majors, discover fulfilling career paths, and enhance skills. We offer online learning, personalized career counseling, internship programs, online recruitment, insightful talkshows, and engaging roadshows. Empowering your academic and professional journey.";
+    $page_keywords = "MACA, Cambodia education, university majors, career guidance, online courses, career counseling, student internships, job placement, talk shows, road shows, popular careers, academic planning, skill development, higher education, student success, career development, job opportunities Cambodia, study abroad, professional training, youth empowerment";
+    $og_title = $site_name . " - Cambodia's Premier Platform for Majors & Careers";
+    $og_description = "MACA is Cambodia's leading platform for students to explore popular university majors, discover fulfilling career paths, and enhance skills. We offer online learning, personalized career counseling, internship programs, online recruitment, insightful talkshows, and engaging roadshows. Empowering your academic and professional journey.";
+
+    switch ($current_page) {
+        case 'home':
+            $page_title = $site_name . " - Home";
+            $page_description = "Welcome to MACA, your gateway to academic and career success in Cambodia. Explore popular majors, career paths, and skill development programs.";
+            $page_keywords = "MACA home, Cambodia education, university, careers, skill development";
+            $og_title = $site_name . " - Home";
+            $og_description = "Welcome to MACA, your gateway to academic and career success in Cambodia. Explore popular majors, career paths, and skill development programs.";
+            break;
+        case 'about':
+            $page_title = $site_name . " - About Us";
+            $page_description = "Learn more about MACA's mission to empower Cambodian students through education, career guidance, and professional development.";
+            $page_keywords = "About MACA, MACA mission, education Cambodia, career guidance";
+            $og_title = $site_name . " - About Us";
+            $og_description = "Learn more about MACA's mission to empower Cambodian students through education, career guidance, and professional development.";
+            break;
+        case 'program/online-learning':
+            $page_title = $site_name . " - Online Learning";
+            $page_description = "Discover flexible online learning opportunities with MACA. Enhance your skills and knowledge from anywhere, at your own pace.";
+            $page_keywords = "Online learning Cambodia, online courses, skill enhancement, flexible education";
+            $og_title = $site_name . " - Online Learning";
+            $og_description = "Discover flexible online learning opportunities with MACA. Enhance your skills and knowledge from anywhere, at your own pace.";
+            break;
+        case 'program/career-counselling':
+            $page_title = $site_name . " - Career Counselling";
+            $page_description = "Get personalized career counseling from MACA experts. Plan your academic and professional journey with tailored advice.";
+            $page_keywords = "Career counseling Cambodia, career guidance, professional advice, academic planning";
+            $og_title = $site_name . " - Career Counselling";
+            $og_description = "Get personalized career counseling from MACA experts. Plan your academic and professional journey with tailored advice.";
+            break;
+        case 'talkshow':
+            $page_title = $site_name . " - Talkshow";
+            $page_description = "Watch insightful talk shows from MACA, featuring industry leaders and experts sharing their experiences and advice.";
+            $page_keywords = "MACA talk show, industry experts, career insights, educational talks";
+            $og_title = $site_name . " - Talkshow";
+            $og_description = "Watch insightful talk shows from MACA, featuring industry leaders and experts sharing their experiences and advice.";
+            break;
+        case 'roadshow':
+            $page_title = $site_name . " - Roadshow";
+            $page_description = "Join MACA's engaging roadshows to connect with universities, employers, and educational institutions across Cambodia.";
+            $page_keywords = "MACA roadshow, education fair Cambodia, university events, career expos";
+            $og_title = $site_name . " - Roadshow";
+            $og_description = "Join MACA's engaging roadshows to connect with universities, employers, and educational institutions across Cambodia.";
+            break;
+        case 'program/internship/internship':
+            $page_title = $site_name . " - Internship Program";
+            $page_description = "Gain practical experience with MACA's internship programs. Connect with leading companies and kickstart your career.";
+            $page_keywords = "Internship Cambodia, student internships, work experience, career kickstart";
+            $og_title = $site_name . " - Internship Program";
+            $og_description = "Gain practical experience with MACA's internship programs. Connect with leading companies and kickstart your career.";
+            break;
+        case 'program/online-recruitment':
+            $page_title = $site_name . " - Online Recruitment";
+            $page_description = "Find your next job opportunity with MACA's online recruitment platform. Connect with top employers in Cambodia.";
+            $page_keywords = "Online recruitment Cambodia, job search, career opportunities, employment platform";
+            $og_title = $site_name . " - Online Recruitment";
+            $og_description = "Find your next job opportunity with MACA's online recruitment platform. Connect with top employers in Cambodia.";
+            break;
+        case 'explore/popular-majors':
+            $page_title = $site_name . " - Popular Majors";
+            $page_description = "Explore popular university majors in Cambodia with MACA. Find the right academic path for your future.";
+            $page_keywords = "Popular majors Cambodia, university degrees, academic paths, study options";
+            $og_title = $site_name . " - Popular Majors";
+            $og_description = "Explore popular university majors in Cambodia with MACA. Find the right academic path for your future.";
+            break;
+        case 'explore/popular-jobs':
+            $page_title = $site_name . " - Popular Careers";
+            $page_description = "Discover popular career paths and job opportunities in Cambodia with MACA. Plan your professional future.";
+            $page_keywords = "Popular careers Cambodia, job opportunities, career paths, employment trends";
+            $og_title = $site_name . " - Popular Careers";
+            $og_description = "Discover popular career paths and job opportunities in Cambodia with MACA. Plan your professional future.";
+            break;
+        case 'announcements':
+            $page_title = $site_name . " - Announcements";
+            $page_description = "Stay updated with the latest announcements from MACA, including events, programs, and important news.";
+            $page_keywords = "MACA announcements, news, events, updates";
+            $og_title = $site_name . " - Announcements";
+            $og_description = "Stay updated with the latest announcements from MACA, including events, programs, and important news.";
+            break;
+        case 'news':
+            $page_title = $site_name . " - News";
+            $page_description = "Read the latest news and articles from MACA, covering education, career development, and youth empowerment in Cambodia.";
+            $page_keywords = "MACA news, education articles, career development news, Cambodia youth";
+            $og_title = $site_name . " - News";
+            $og_description = "Read the latest news and articles from MACA, covering education, career development, and youth empowerment in Cambodia.";
+            break;
+        case 'contact':
+            $page_title = $site_name . " - Contact Us";
+            $page_description = "Get in touch with MACA. Contact us for inquiries about our programs, services, or partnerships.";
+            $page_keywords = "Contact MACA, MACA support, inquiry, partnership";
+            $og_title = $site_name . " - Contact Us";
+            $og_description = "Get in touch with MACA. Contact us for inquiries about our programs, services, or partnerships.";
+            break;
+        default:
+            // Default values are already set above
+            break;
+    }
+    ?>
+    <title><?php echo $page_title; ?></title>
+    
+    <meta name="description" content="<?php echo $page_description; ?>">
+    <meta name="keywords" content="<?php echo $page_keywords; ?>">
+    <meta property="og:title" content="<?php echo $og_title; ?>">
+    <meta property="og:description" content="<?php echo $og_description; ?>">
+    <meta name="author" content="MACA Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.yourwebsite.com/<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- Google Fonts - Kantumruy Pro -->
+     <link rel="stylesheet" href="/assets/css/style.css">
+     <link rel="stylesheet" href="/assets/css/styles.css">
+     <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <!-- TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+      <link
+      rel="shortcut icon"
+      href="./assets/images/logomaca.png"
+      type="image/x-icon"
+    />
     <style>
-        /* Add Khmer font support */
-        .khmer-text {
-            font-family: "Khmer S4", sans-serif;
-        }
-        /* Khmer Font */
-        @font-face {
-            font-family: "Khmer S4";
-            src: url("assets/fonts/KhmerS4.ttf") format("truetype");
-            font-weight: normal;
+        /* Apply Kantumruy Pro to lang-kh class */
+        .lang-kh {
+            font-family: "Kantumruy Pro", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400; /* Default weight, can be adjusted */
             font-style: normal;
         }
-        
-        /* Apply Khmer font to body when in Khmer language */
-        body.lang-kh {
-            font-family: "Khmer S4", sans-serif;
+
+         .khmer-text {
+            font-family: "Kantumruy Pro", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400; /* Default weight, can be adjusted */
+            font-style: normal;
         }
-        
-        /* Apply Khmer font to specific Khmer text elements */
-        .khmer-text {
-            font-family: "Khmer S4", sans-serif;
-        }
-        
+
         /* Custom header styles */
         .main-header {
             background-color: #dc3545;
@@ -130,6 +247,9 @@ if (isset($_SESSION['redirect_to'])) {
             padding: 0.5rem 0;
             margin-top: 0;
             border-top: 3px solid #f5a425;
+            display: none; /* Hide by default for hover effect */
+            position: absolute; /* Ensure it positions correctly */
+            z-index: 1000; /* Ensure it's above other content */
         }
         
         .dropdown-item {
@@ -143,6 +263,18 @@ if (isset($_SESSION['redirect_to'])) {
             color: #dc3545;
         }
         
+        /* Hover effect for dropdowns */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Ensure dropdown toggle doesn't show arrow on hover for desktop */
+        @media (min-width: 992px) {
+            .nav-item.dropdown:hover .nav-link.dropdown-toggle::after {
+                transform: rotate(180deg); /* Rotate arrow on hover */
+            }
+        }
+
         .get-started-btn {
             background-color: white;
             color: #dc3545 !important;
@@ -215,6 +347,7 @@ if (isset($_SESSION['redirect_to'])) {
                 background-color: rgba(255, 255, 255, 0.1);
                 border: none;
                 box-shadow: none;
+                display: block; /* Always show dropdown in mobile */
             }
             
             .dropdown-item {
@@ -290,7 +423,7 @@ $site_name = "SunLove";
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="index.php?page=program/internship">
+                                <a class="dropdown-item" href="index.php?page=program/internship/internship">
                                     <?php echo getLangText('Internship Program', 'កម្មវិធីកម្មសិក្សា'); ?>
                                 </a>
                             </li>
