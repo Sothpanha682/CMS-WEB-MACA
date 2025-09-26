@@ -1,59 +1,58 @@
 # CI/CD Setup for AsiaRegistry Hosting
 
-This document outlines the steps to set up Continuous Integration/Continuous Deployment (CI/CD) for your project on AsiaRegistry hosting using a Git webhook and a `deploy.php` script. This setup will automatically update your site whenever you push changes to your GitHub repository.
+This document outlines the steps to set up Continuous Integration/Continuous Deployment (CI/CD) for your project on AsiaRegistry hosting. Due to the lack of SSH shell access, we will be using **GitHub Actions with FTP deployment**. This setup will automatically upload your site whenever you push changes to your GitHub repository.
 
 ## Prerequisites
 
-*   **SSH Access:** You have SSH access to your AsiaRegistry hosting, even if there's no direct terminal access. This is required for the `deploy.php` script to execute `git pull`.
+*   **FTP Access:** You have FTP credentials for your AsiaRegistry hosting.
 *   **Git Repository:** Your project is hosted on GitHub.
-*   **`deploy.php` script:** The `deploy.php` file has been added to your project's root directory.
+*   **`.github/workflows/ftp-deploy.yml` file:** This GitHub Actions workflow file has been added to your project.
 
-## Step 1: Configure `deploy.php`
+## Step 1: Remove `deploy.php` (Optional but Recommended)
 
-1.  **Open `deploy.php`** in your project's root directory.
-2.  **Change the secret key:** Locate the line `$secret = 'YOUR_SECRET_KEY';` and replace `'YOUR_SECRET_KEY'` with a strong, random string. This secret key will be used to verify that the webhook requests are legitimate.
-    ```php
-    $secret = 'YOUR_VERY_STRONG_AND_RANDOM_SECRET_KEY_HERE';
-    ```
-3.  **Ensure correct branch:** Verify that the `$branch` variable in `deploy.php` matches the branch you want to deploy from (e.g., `main`, `master`).
-    ```php
-    $branch = 'main'; // Or 'master', or your deployment branch
-    ```
-4.  **Upload `deploy.php`:** Ensure this modified `deploy.php` file is uploaded to the root directory of your website on AsiaRegistry hosting.
+Since we are no longer using the Git webhook method, the `deploy.php` file is not needed. You can remove it from your project and from your hosting server to avoid confusion.
 
-## Step 2: Set up GitHub Webhook
+## Step 2: Configure GitHub Secrets for FTP Credentials
 
-1.  **Go to your GitHub repository:** Navigate to your project's repository on GitHub (e.g., `https://github.com/your-username/your-repo-name`).
+The GitHub Actions workflow uses secrets to securely store your FTP credentials.
+
+1.  **Go to your GitHub repository:** Navigate to your project's repository on GitHub (e.g., `https://github.com/Sothpanha682/CMS-WEB-MACA.git`).
 2.  **Access Settings:** Click on the "Settings" tab.
-3.  **Navigate to Webhooks:** In the left sidebar, click on "Webhooks."
-4.  **Add webhook:** Click the "Add webhook" button.
-5.  **Configure the webhook:**
-    *   **Payload URL:** Enter the full URL to your `deploy.php` script on your AsiaRegistry hosting. For example: `http://your-domain.com/deploy.php` or `https://your-domain.com/deploy.php`.
-    *   **Content type:** Select `application/x-www-form-urlencoded`.
-    *   **Secret:** Paste the exact secret key you set in your `deploy.php` file (from Step 1.2).
-    *   **Which events would you like to trigger this webhook?** Select "Just the push event."
-    *   **Active:** Ensure "Active" is checked.
-6.  **Add webhook:** Click the "Add webhook" button at the bottom.
+3.  **Navigate to Secrets and variables:** In the left sidebar, click on "Secrets and variables" -> "Actions".
+4.  **Add new repository secrets:** Click on "New repository secret" and add the following secrets, using your actual FTP details:
+    *   **`FTP_SERVER`**: Your FTP host (e.g., `ftp.yourdomain.com` or `18.139.13.90`).
+    *   **`FTP_USERNAME`**: Your FTP username (e.g., `d0k50n7p`).
+    *   **`FTP_PASSWORD`**: Your FTP password.
+    *   **`FTP_PORT`**: Your FTP port (usually `21` for FTP, or `22` if your hosting supports SFTP and you intend to use it).
+    *   **`FTP_PROTOCOL`**: Your FTP protocol (`ftp`, `ftps`, or `sftp`). Check with your hosting provider which protocol is supported. If you are unsure, `ftp` is a common default.
 
-## Step 3: Initial Deployment (Manual)
+    **Example:**
+    *   `FTP_SERVER`: `18.139.13.90`
+    *   `FTP_USERNAME`: `d0k50n7p`
+    *   `FTP_PASSWORD`: `your_ftp_password_here`
+    *   `FTP_PORT`: `21`
+    *   `FTP_PROTOCOL`: `ftp`
 
-Before the webhook can automatically pull changes, your hosting environment needs to be a Git repository.
+## Step 3: Review `ftp-deploy.yml`
 
-1.  **Connect via SSH:** Use an SSH client (like PuTTY on Windows, or the `ssh` command on Linux/macOS) to connect to your AsiaRegistry hosting.
-    *   You will need your SSH username, host, and password/key.
-    *   Example command: `ssh your_username@your_hosting_ip_or_domain`
-2.  **Navigate to your website's root directory:**
-    ```bash
-    cd /path/to/your/website/root
+1.  **Open `.github/workflows/ftp-deploy.yml`** in your project.
+2.  **Verify `branches`:** Ensure the `branches` section under `on: push:` matches your deployment branch (e.g., `main`).
+    ```yaml
+    on:
+      push:
+        branches:
+          - main # or your primary branch, e.g., master
     ```
-    (Replace `/path/to/your/website/root` with the actual path on your server, e.g., `public_html` or `www`).
-3.  **Initialize Git and pull your repository:**
-    ```bash
-    git init
-    git remote add origin https://github.com/Sothpanha682/CMS-WEB-MACA.git # Replace with your actual repository URL
-    git pull origin main # Replace 'main' with your deployment branch
+3.  **Verify `server-dir`:** Ensure `server-dir` is set to the correct root directory on your hosting where your website files should go (e.g., `/public_html/`).
+    ```yaml
+    server-dir: /public_html/ # The directory on your server to deploy to
     ```
-    This step is crucial to make your server directory a Git repository that can be updated by `git pull`.
+4.  **Verify `protocol` and `port`:** If your hosting uses a different FTP protocol (e.g., `ftps` or `sftp`) or port, update these lines in the workflow file.
+    ```yaml
+    port: ${{ secrets.FTP_PORT }} # Usually 21 for FTP, 22 for SFTP (if available)
+    protocol: ftp # or ftps, sftp (if available)
+    ```
+    If you set `FTP_PORT` and `FTP_PROTOCOL` secrets, the workflow will use those. Otherwise, it will default to `ftp` on port `21`.
 
 ## Step 4: Test the CI/CD Setup
 
@@ -61,15 +60,15 @@ Before the webhook can automatically pull changes, your hosting environment need
 2.  Commit the change and push it to your GitHub repository's deployment branch (e.g., `main`).
     ```bash
     git add .
-    git commit -m "Test CI/CD setup"
+    git commit -m "Test CI/CD setup with FTP"
     git push origin main
     ```
-3.  After a few moments, visit your website. The changes should be live.
-4.  You can also check the `deploy.log` file (if it's created and accessible on your server) for deployment messages. On GitHub, you can check the "Recent Deliveries" section under your webhook settings to see if the webhook was triggered successfully.
+3.  **Check GitHub Actions:** Go to your GitHub repository, click on the "Actions" tab. You should see a workflow run named "FTP Deploy" in progress.
+4.  **Monitor the workflow:** Click on the running workflow to see the steps. If it completes successfully, it means your files were uploaded.
+5.  **Verify on your website:** After the GitHub Actions workflow completes, visit your website (`https://mymaca.asia/`). The changes should be live.
 
 ## Troubleshooting
 
-*   **`deploy.log` not created/updated:** Check file permissions on your server. The web server user needs write access to the directory where `deploy.php` and `deploy.log` are located.
-*   **`git pull` fails:** Ensure the Git repository on your server is correctly initialized and has the correct remote (`origin`). Also, check SSH keys if your repository is private and requires authentication.
-*   **Webhook not triggering:** Double-check the Payload URL and Secret in your GitHub webhook settings. Ensure the URL is publicly accessible.
-*   **"No X-Hub-Signature found" or "X-Hub-Signature does not match":** This indicates an issue with the secret key or content type. Ensure the secret in GitHub matches `deploy.php` exactly, and the content type is `application/x-www-form-urlencoded`.
+*   **Workflow fails:** Check the logs in the GitHub Actions run for specific error messages. Common issues include incorrect FTP credentials, wrong server directory, or firewall issues.
+*   **Changes not appearing:** Ensure the `server-dir` in `ftp-deploy.yml` is the absolute correct path to your website's root on the hosting. Also, clear your browser cache.
+*   **FTP connection issues:** Double-check your `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_PORT`, and `FTP_PROTOCOL` secrets in GitHub.

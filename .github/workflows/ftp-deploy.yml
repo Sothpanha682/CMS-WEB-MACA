@@ -1,0 +1,32 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main # or your primary branch, e.g., master
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v4
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: ${{ secrets.FTP_PORT }} # Usually 21 for FTP, 22 for SFTP (if available)
+        protocol: ftp # or ftps, sftp (if available)
+        local-dir: ./ # The directory to upload from (your project root)
+        server-dir: /public_html/ # The directory on your server to deploy to
+        # exclude: |
+        #   .git/
+        #   .github/
+        #   .vscode/
+        #   node_modules/
+        #   *.log
+        #   .env
