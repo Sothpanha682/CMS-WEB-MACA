@@ -18,7 +18,7 @@
     $log_file = 'deploy.log';
 
     // Secret key for webhook verification (optional, but recommended)
-    $secret = 'YOUR_SECRET_KEY'; // CHANGE THIS to a strong, random string
+    $secret = '6d4dd0bd8c4c50b7828c5d5df81c30153a77096657e5c79c76b043f759df0b2e'; // CHANGE THIS to a strong, random string
 
     // Function to log messages
     function log_message($message) {

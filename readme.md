@@ -1,76 +1,75 @@
-# MACA CMS
+# CI/CD Setup for AsiaRegistry Hosting
 
-## Project Overview
+This document outlines the steps to set up Continuous Integration/Continuous Deployment (CI/CD) for your project on AsiaRegistry hosting using a Git webhook and a `deploy.php` script. This setup will automatically update your site whenever you push changes to your GitHub repository.
 
-MACA CMS is a comprehensive Content Management System designed to manage various types of content, user interactions, and potentially AI-driven functionalities. This project appears to be a hybrid web application, combining PHP for backend operations and Next.js/React for the frontend, offering a robust and flexible platform for content administration.
+## Prerequisites
 
-## Features
+*   **SSH Access:** You have SSH access to your AsiaRegistry hosting, even if there's no direct terminal access. This is required for the `deploy.php` script to execute `git pull`.
+*   **Git Repository:** Your project is hosted on GitHub.
+*   **`deploy.php` script:** The `deploy.php` file has been added to your project's root directory.
 
-- **User Management:** Tools for managing users and administrative access.
-- **Content Management:**
-  - News articles
-  - Announcements
-  - Talkshows
-  - Roadshows
-  - Popular Jobs, Majors, and Careers listings
-  - Slider images and content
-- **Site Settings:** Configuration and management of global website settings.
-- **Media Management:** Handling and organization of media files.
-- **AI Integration:** Features leveraging AI for enhanced content or user experience.
-- **Dashboard:** An administrative interface for an overview and quick access to key functionalities.
-- **Database Management:** Structured database for content storage and retrieval.
-- **Frontend Components:** Modern, interactive user interface built with React/Next.js.
+## Step 1: Configure `deploy.php`
 
-## Technologies Used
-
-- **Backend:** PHP
-- **Database:** MySQL / MariaDB (inferred from `.sql` files)
-- **Frontend Framework:** React, Next.js
-- **Styling:** Tailwind CSS, CSS
-- **Scripting:** JavaScript, TypeScript
-- **Package Manager:** pnpm
-
-## Setup Instructions
-
-To set up this project locally, follow these general steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [repository-url]
-    cd MACA
+1.  **Open `deploy.php`** in your project's root directory.
+2.  **Change the secret key:** Locate the line `$secret = 'YOUR_SECRET_KEY';` and replace `'YOUR_SECRET_KEY'` with a strong, random string. This secret key will be used to verify that the webhook requests are legitimate.
+    ```php
+    $secret = 'YOUR_VERY_STRONG_AND_RANDOM_SECRET_KEY_HERE';
     ```
-2.  **Database Setup:**
-    - Import the `maca_cms_database.sql` file into your MySQL/MariaDB database.
-    - Configure database connection settings in `config/database.php`.
-3.  **PHP Environment:**
-    - Ensure you have a PHP environment (e.g., Apache, Nginx with PHP-FPM, Laragon, XAMPP) configured to serve the PHP files.
-4.  **Frontend Setup:**
-    - Navigate to the project root.
-    - Install frontend dependencies:
-      ```bash
-      pnpm install
-      ```
-    - Build the Next.js application (if applicable for production deployment):
-      ```bash
-      pnpm build
-      ```
-    - Start the development server:
-      ```bash
-      pnpm dev
-      ```
-5.  **Access the Application:**
-    - Open your web browser and navigate to the configured URL for the PHP application (e.g., `http://localhost/MACA`).
-    - The Next.js frontend might run on a different port (e.g., `http://localhost:3000`) and interact with the PHP backend via API calls.
+3.  **Ensure correct branch:** Verify that the `$branch` variable in `deploy.php` matches the branch you want to deploy from (e.g., `main`, `master`).
+    ```php
+    $branch = 'main'; // Or 'master', or your deployment branch
+    ```
+4.  **Upload `deploy.php`:** Ensure this modified `deploy.php` file is uploaded to the root directory of your website on AsiaRegistry hosting.
 
-## Usage
+## Step 2: Set up GitHub Webhook
 
-- **Admin Panel:** Access the administrative dashboard via `pages/login.php` (or similar) to manage content and settings.
-- **Public Site:** The public-facing website can be accessed through `index.php` and various `pages/` files.
+1.  **Go to your GitHub repository:** Navigate to your project's repository on GitHub (e.g., `https://github.com/your-username/your-repo-name`).
+2.  **Access Settings:** Click on the "Settings" tab.
+3.  **Navigate to Webhooks:** In the left sidebar, click on "Webhooks."
+4.  **Add webhook:** Click the "Add webhook" button.
+5.  **Configure the webhook:**
+    *   **Payload URL:** Enter the full URL to your `deploy.php` script on your AsiaRegistry hosting. For example: `http://your-domain.com/deploy.php` or `https://your-domain.com/deploy.php`.
+    *   **Content type:** Select `application/x-www-form-urlencoded`.
+    *   **Secret:** Paste the exact secret key you set in your `deploy.php` file (from Step 1.2).
+    *   **Which events would you like to trigger this webhook?** Select "Just the push event."
+    *   **Active:** Ensure "Active" is checked.
+6.  **Add webhook:** Click the "Add webhook" button at the bottom.
 
-## Contributing
+## Step 3: Initial Deployment (Manual)
 
-Contributions are welcome! Please follow standard Git workflow: fork the repository, create a new branch for your features or bug fixes, and submit a pull request.
+Before the webhook can automatically pull changes, your hosting environment needs to be a Git repository.
 
-## License
+1.  **Connect via SSH:** Use an SSH client (like PuTTY on Windows, or the `ssh` command on Linux/macOS) to connect to your AsiaRegistry hosting.
+    *   You will need your SSH username, host, and password/key.
+    *   Example command: `ssh your_username@your_hosting_ip_or_domain`
+2.  **Navigate to your website's root directory:**
+    ```bash
+    cd /path/to/your/website/root
+    ```
+    (Replace `/path/to/your/website/root` with the actual path on your server, e.g., `public_html` or `www`).
+3.  **Initialize Git and pull your repository:**
+    ```bash
+    git init
+    git remote add origin https://github.com/Sothpanha682/CMS-WEB-MACA.git # Replace with your actual repository URL
+    git pull origin main # Replace 'main' with your deployment branch
+    ```
+    This step is crucial to make your server directory a Git repository that can be updated by `git pull`.
 
-This project is licensed under the MIT License.
+## Step 4: Test the CI/CD Setup
+
+1.  Make a small change to a file in your local project.
+2.  Commit the change and push it to your GitHub repository's deployment branch (e.g., `main`).
+    ```bash
+    git add .
+    git commit -m "Test CI/CD setup"
+    git push origin main
+    ```
+3.  After a few moments, visit your website. The changes should be live.
+4.  You can also check the `deploy.log` file (if it's created and accessible on your server) for deployment messages. On GitHub, you can check the "Recent Deliveries" section under your webhook settings to see if the webhook was triggered successfully.
+
+## Troubleshooting
+
+*   **`deploy.log` not created/updated:** Check file permissions on your server. The web server user needs write access to the directory where `deploy.php` and `deploy.log` are located.
+*   **`git pull` fails:** Ensure the Git repository on your server is correctly initialized and has the correct remote (`origin`). Also, check SSH keys if your repository is private and requires authentication.
+*   **Webhook not triggering:** Double-check the Payload URL and Secret in your GitHub webhook settings. Ensure the URL is publicly accessible.
+*   **"No X-Hub-Signature found" or "X-Hub-Signature does not match":** This indicates an issue with the secret key or content type. Ensure the secret in GitHub matches `deploy.php` exactly, and the content type is `application/x-www-form-urlencoded`.
