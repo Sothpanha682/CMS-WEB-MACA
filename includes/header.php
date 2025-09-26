@@ -404,7 +404,7 @@ $site_name = "SunLove";
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link <?php echo $current_page == 'home' ? 'active' : ''; ?>" href="index.php?page=home">
-                            <?php echo getLangText('Home test chnage', 'ទំព័រដើម'); ?>
+                            <?php echo getLangText('Home', 'ទំព័រដើម'); ?>
                         </a>
                     </li>
                     <li class="nav-item">

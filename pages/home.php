@@ -249,7 +249,7 @@
     <section class="preview-section">
       <div class="preview-content">
         <div class="preview-text">
-          <h2><?php echo getLangText('MACA MOBILE APP', 'កម្មវិធីទូរស័ព្ទ MACA'); ?></h2>
+          <h2><?php echo getLangText('MACA MOBILE APP gfbjvdsbjsd', 'កម្មវិធីទូរស័ព្ទ MACA'); ?></h2>
           <p><strong><?php echo getLangText('Career Assessment to Uncover Your Potential', 'ការវាយតម្លៃអាជីពដើម្បីស្វែងរកសក្តានុពលរបស់អ្នក'); ?></strong></p>
           <p>
             <?php echo getLangText('MACA has developed the MACA Mobile application to assess which majors and careers best suit each individual and to provide detailed information on various academic and career options.', 'MACA បានបង្កើតកម្មវិធីទូរស័ព្ទ MACA ដើម្បីវាយតម្លៃថាតើមុខជំនាញ និងអាជីពណាដែលស័ក្តិសមបំផុតសម្រាប់បុគ្គលម្នាក់ៗ និងផ្តល់ព័ត៌មានលម្អិតអំពីជម្រើសសិក្សា និងអាជីពផ្សេងៗ។'); ?>
