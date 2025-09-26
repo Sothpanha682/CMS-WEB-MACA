@@ -8,5 +8,8 @@ if (!defined('GEMINI_API_KEY')) {
 }
 
 // You can add other API keys here as needed
-// define('OTHER_API_KEY', 'your_other_api_key');
+if (!defined('PEXELS_API_KEY')) {
+    define('PEXELS_API_KEY', 'y2VJLDXInIpt9i3WxifED5SQV31YQGTCRD3V9OEhpD0GDtJtL3myMKE5');
+}
 ?>
+

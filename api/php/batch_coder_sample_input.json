@@ -1,0 +1,11 @@
+ { "config": {
+     "username": "my_web_services_username",
+     "password": "my_web_services_password",
+     "max_results": 3
+   },
+   "queries": [
+     "Structural Engineer",
+     "Receptionist",
+     "Senior IT Manager"
+   ]
+ }

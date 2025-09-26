@@ -307,8 +307,8 @@ if (isset($_SESSION['message'])) {
                                     <td><?php echo $member['display_order']; ?></td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <a href="index.php?page=manage-team-members&edit=<?php echo $member['id']; ?>" class="btn btn-sm btn-outline-primary"><?php echo getLangText('Edit', 'កែសម្រួល'); ?></a>
-                                            <a href="index.php?page=manage-team-members&delete=<?php echo $member['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('<?php echo getLangText('Are you sure you want to delete this team member?', 'តើអ្នកប្រាកដថាចង់លុបសមាជិកក្រុមនេះមែនទេ?'); ?>')"><?php echo getLangText('Delete', 'លុប'); ?></a>
+                                            <a href="index.php?page=manage-team-members&edit=<?php echo $member['id']; ?>" class="btn btn-sm btn-outline-primary"><?php echo getLangText('Edit', 'កែ'); ?></a>
+                                            <a href="index.php?page=manage-team-members&delete=<?php echo $member['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('<?php echo getLangText('Are you sure you want to delete this team member?', ''); ?>')"><?php echo getLangText('Delete', 'លុប'); ?></a>
                                         </div>
                                     </td>
                                 </tr>

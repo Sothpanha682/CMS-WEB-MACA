@@ -11,21 +11,12 @@ if (!isLoggedIn() || !isAdmin()) {
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
     $id = (int)$_GET['id'];
     try {
-        // Get the image path before deleting
-        $stmt = $pdo->prepare("SELECT image_path FROM intern_news WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $news = $stmt->fetch();
-        
+        // No need to get video_url before deleting, as it's not a local file
         // Delete the record
         $stmt = $pdo->prepare("DELETE FROM intern_news WHERE id = :id");
         $stmt->bindParam(':id', $id);
         
         if ($stmt->execute()) {
-            // Delete the image file if it exists
-            if ($news && $news['image_path'] && file_exists($news['image_path'])) {
-                unlink($news['image_path']);
-            }
             $_SESSION['message'] = "Intern news deleted successfully.";
             $_SESSION['message_type'] = "success";
         } else {
@@ -101,7 +92,7 @@ try {
 
 // Get intern news
 try {
-    $stmt = $pdo->prepare("SELECT * FROM intern_news ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+    $stmt = $pdo->prepare("SELECT id, title, content, excerpt, intern_name, intern_university, intern_company, category, video_url, is_featured, is_active, created_at, updated_at FROM intern_news ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
@@ -182,9 +173,32 @@ $category_colors = [
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <?php if ($news['image_path'] && file_exists($news['image_path'])): ?>
-                                                        <img src="<?php echo $news['image_path']; ?>" alt="News Image" 
-                                                             class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                                    <?php if (isset($news['video_url']) && $news['video_url']): ?>
+                                                        <?php
+                                                            $video_id = '';
+                                                            $thumbnail_url = '';
+                                                            if (strpos($news['video_url'], 'youtube.com') !== false || strpos($news['video_url'], 'youtu.be') !== false) {
+                                                                preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i', $news['video_url'], $matches);
+                                                                if (isset($matches[1])) {
+                                                                    $video_id = $matches[1];
+                                                                    $thumbnail_url = "https://img.youtube.com/vi/{$video_id}/default.jpg";
+                                                                }
+                                                            } elseif (strpos($news['video_url'], 'facebook.com') !== false) {
+                                                                // Facebook video thumbnails are harder to get directly without API.
+                                                                // For simplicity, we'll use a generic placeholder or try to embed directly.
+                                                                // For now, just a placeholder.
+                                                                $thumbnail_url = 'https://via.placeholder.com/50x50?text=FB+Video';
+                                                            }
+                                                        ?>
+                                                        <?php if ($thumbnail_url): ?>
+                                                            <img src="<?php echo htmlspecialchars($thumbnail_url); ?>" alt="Video Thumbnail" 
+                                                                 class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                                        <?php else: ?>
+                                                            <div class="bg-light rounded me-3 d-flex align-items-center justify-content-center" 
+                                                                 style="width: 50px; height: 50px;">
+                                                                <i class="fas fa-video text-muted"></i>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     <?php else: ?>
                                                         <div class="bg-light rounded me-3 d-flex align-items-center justify-content-center" 
                                                              style="width: 50px; height: 50px;">

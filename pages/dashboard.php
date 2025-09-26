@@ -49,7 +49,7 @@ ob_clean(); // Clear the output buffer to prevent the default header from being 
                         <h5 class="mb-0">Admin Dashboard</h5>
                     </div>
                     <div class="list-group list-group-flush">
-                        <a href="#announcements-section" class="list-group-item list-group-item-action d-flex align-items-center">
+                        <a href="index.php?page=manage-announcements" class="list-group-item list-group-item-action d-flex align-items-center">
                             <i class="fas fa-bullhorn me-2"></i> Announcements
                         </a>
                         <a href="#news-section" class="list-group-item list-group-item-action d-flex align-items-center">

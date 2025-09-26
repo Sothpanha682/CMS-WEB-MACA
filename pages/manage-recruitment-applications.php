@@ -233,17 +233,11 @@ $current_offset = ($current_view === 'applications' ? $offset : $job_posting_off
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Recruitment - MACA</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+<?php
+
+require_once 'includes/header.php';
+
+?>
 
 <div class="management-wrapper">
     <!-- Header Section -->
@@ -283,10 +277,7 @@ $current_offset = ($current_view === 'applications' ? $offset : $job_posting_off
                 </div>
                 <div class="col-lg-4 text-end">
                     <div class="header-actions">
-                        <a href="index.php?page=dashboard" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-arrow-left me-2"></i>
-                            Back to Dashboard
-                        </a>
+                      
                         <a href="#" class="btn btn-light btn-lg ms-2" onclick="exportApplications(); return false;">
                             <i class="fas fa-download me-2"></i>
                             Export Applications
@@ -324,13 +315,13 @@ $current_offset = ($current_view === 'applications' ? $offset : $job_posting_off
         <!-- Navigation Tabs -->
         <ul class="nav nav-tabs mb-4">
             <li class="nav-item">
-                <a class="nav-link text-black <?php echo $current_view === 'applications' ? 'active' : ''; ?>" 
+                <a  class="nav-link text-black  <?php echo $current_view === 'applications' ? 'active' : '';  ?>"  style="color: #374151;" 
                    href="index.php?page=manage-recruitment-applications&view=applications">
-                    <i class="fas fa-file-alt me-2"></i>Job Applications
+                    <i class="fas fa-file-alt me-2" ></i>Job Applications
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-black <?php echo $current_view === 'postings' ? 'active' : ''; ?>" 
+                <a style="color: #374151;" class="nav-link text-black <?php echo $current_view === 'postings' ? 'active' : ''; ?>" 
                    href="index.php?page=manage-recruitment-applications&view=postings">
                     <i class="fas fa-briefcase me-2"></i>Job Postings
                 </a>
@@ -936,16 +927,7 @@ $current_offset = ($current_view === 'applications' ? $offset : $job_posting_off
 </div>
 
 <style>
-* {
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-}
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #f8fafc;
-}
 
 .management-wrapper {
     min-height: 100vh;
@@ -1608,8 +1590,31 @@ function clearFilters(view) {
 
 // Export applications (placeholder function)
 function exportApplications() {
-    // This would typically generate a CSV or Excel file
-    alert('Export functionality would be implemented here. This would generate a CSV/Excel file with all application data.');
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('page', 'manage-recruitment-applications'); // Ensure correct page context
+    searchParams.set('export', 'true'); // Indicate export action
+
+    // Collect current filter values
+    const search = document.getElementById('search').value;
+    const status = document.getElementById('status').value;
+    const job_id = document.getElementById('job_id').value;
+    const date_from = document.getElementById('date_from').value;
+    const date_to = document.getElementById('date_to').value;
+
+    // Construct the URL for the export script
+    let exportUrl = 'actions/export-applications.php?';
+    if (search) exportUrl += `search=${encodeURIComponent(search)}&`;
+    if (status) exportUrl += `status=${encodeURIComponent(status)}&`;
+    if (job_id) exportUrl += `job_id=${encodeURIComponent(job_id)}&`;
+    if (date_from) exportUrl += `date_from=${encodeURIComponent(date_from)}&`;
+    if (date_to) exportUrl += `date_to=${encodeURIComponent(date_to)}&`;
+    
+    // Remove trailing '&' if any
+    if (exportUrl.endsWith('&')) {
+        exportUrl = exportUrl.slice(0, -1);
+    }
+
+    window.location.href = exportUrl;
 }
 
 // Auto-submit form on filter change
@@ -1640,6 +1645,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
-</body>
-</html>

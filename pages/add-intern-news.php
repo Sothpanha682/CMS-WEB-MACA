@@ -32,21 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Category is required.";
     }
     
-    // Handle image upload
-    $image_path = '';
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $upload_result = uploadFile($_FILES['image'], 'uploads/intern-news/', ['jpg', 'jpeg', 'png', 'gif'], 5242880);
-        if ($upload_result['status']) {
-            $image_path = $upload_result['path'];
-        } else {
-            $errors[] = $upload_result['message'];
-        }
-    }
+    // Handle video URL
+    $video_url = sanitize($_POST['image_url'] ?? ''); // Use 'image_url' from form for video_url column
     
     // If no errors, insert into database
     if (empty($errors)) {
         try {
-            $stmt = $pdo->prepare("INSERT INTO intern_news (title, content, excerpt, intern_name, intern_university, intern_company, category, image_path, is_featured, is_active) VALUES (:title, :content, :excerpt, :intern_name, :intern_university, :intern_company, :category, :image_path, :is_featured, :is_active)");
+            $stmt = $pdo->prepare("INSERT INTO intern_news (title, content, excerpt, intern_name, intern_university, intern_company, category, video_url, is_featured, is_active) VALUES (:title, :content, :excerpt, :intern_name, :intern_university, :intern_company, :category, :video_url, :is_featured, :is_active)");
             
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':content', $content);
@@ -55,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':intern_university', $intern_university);
             $stmt->bindParam(':intern_company', $intern_company);
             $stmt->bindParam(':category', $category);
-            $stmt->bindParam(':image_path', $image_path);
+            $stmt->bindParam(':video_url', $video_url); // Bind to video_url
             $stmt->bindParam(':is_featured', $is_featured);
             $stmt->bindParam(':is_active', $is_active);
             
@@ -148,10 +140,13 @@ $categories = [
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Featured Image</label>
-                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
-                                    <div class="form-text">Recommended size: 800x600px. Max size: 5MB.</div>
+                                    <label for="image_url" class="form-label">Featured Image URL (Facebook/YouTube)</label>
+                                    <input type="text" class="form-control" id="image_url" name="image_url" 
+                                           value="<?php echo isset($_POST['image_url']) ? htmlspecialchars($_POST['image_url']) : ''; ?>" 
+                                           placeholder="Enter image URL from Facebook or YouTube">
+                                    <div class="form-text">Provide a direct URL to an image. This will override any uploaded file.</div>
                                 </div>
+
 
                                 <hr>
 

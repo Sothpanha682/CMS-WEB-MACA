@@ -1,4 +1,10 @@
 <?php
+// Include functions for file uploads and language text
+require_once 'includes/functions.php';
+
+// Get current language
+$currentLang = getCurrentLanguage();
+
 // Get current page number from URL parameter
 $current_page = isset($_GET['page_num']) ? max(1, intval($_GET['page_num'])) : 1;
 $announcements_per_page = 10;
@@ -72,8 +78,12 @@ try {
                                 <small class="text-muted"><?php echo formatDate($announcement['created_at']); ?></small>
                             <?php endif; ?>
                         </div>
-                        <h4 class="card-title"><?php echo htmlspecialchars($announcement['title']); ?></h4>
-                        <div class="card-text mb-3"><?php echo truncateText(strip_tags($announcement['content']), 200); ?></div>
+                        <h4 class="card-title">
+                            <?php echo $currentLang == 'en' ? htmlspecialchars($announcement['title']) : htmlspecialchars($announcement['title_km']); ?>
+                        </h4>
+                        <div class="card-text mb-3">
+                            <?php echo truncateText(strip_tags($currentLang == 'en' ? $announcement['content'] : $announcement['content_km']), 200); ?>
+                        </div>
                         <a href="index.php?page=announcement-detail&id=<?php echo $announcement['id']; ?>" class="btn btn-outline-danger">
                             <?php echo getLangText('Read More', 'អានបន្ថែម'); ?>
                         </a>

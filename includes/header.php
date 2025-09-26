@@ -172,8 +172,12 @@ if (isset($_SESSION['redirect_to'])) {
     <meta name="keywords" content="<?php echo $page_keywords; ?>">
     <meta property="og:title" content="<?php echo $og_title; ?>">
     <meta property="og:description" content="<?php echo $og_description; ?>">
+    <meta property="og:image" content="https://mymaca.asia/assets/images/logomaca.png<?php echo $site_logo; ?>">
+    <meta property="og:url" content="https://mymaca.asia/index.php?page=home<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
+    <meta property="og:type" content="website">
     <meta name="author" content="MACA Team">
     <meta name="robots" content="index, follow">
+    
     <link rel="canonical" href="https://www.yourwebsite.com/<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -224,7 +228,7 @@ if (isset($_SESSION['redirect_to'])) {
         }
         
         .nav-link {
-            color: white !important;
+            color: gray !important;
             font-weight: 500;
             padding: 10px 15px !important;
             transition: all 0.3s ease;
@@ -347,7 +351,6 @@ if (isset($_SESSION['redirect_to'])) {
                 background-color: rgba(255, 255, 255, 0.1);
                 border: none;
                 box-shadow: none;
-                display: block; /* Always show dropdown in mobile */
             }
             
             .dropdown-item {
@@ -364,9 +367,16 @@ if (isset($_SESSION['redirect_to'])) {
                 display: inline-block;
             }
             
-            .language-switcher {
-                margin-bottom: 10px;
+            /* Adjust language switcher for mobile when outside collapse */
+            .language-switcher.d-lg-none {
+                margin-right: 10px; /* Space between language switcher and toggler */
+                margin-left: auto; /* Push to the left of the toggler */
             }
+        }
+
+        /* New rule to make header text white without changing .nav-link directly */
+        nav.navbar-dark .navbar-nav .nav-link {
+            color: white !important;
         }
     </style>
 </head>
@@ -382,6 +392,11 @@ $site_name = "SunLove";
 <img src="<?php echo $site_logo; ?>" alt="<?php echo $site_name; ?>" height="50">
 
             </a>
+            <!-- Language Switcher for mobile -->
+            <div class="language-switcher d-lg-none me-2">
+                <a href="actions/change-language.php?lang=en&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="<?php echo (!isset($_SESSION['lang']) || $_SESSION['lang'] == 'en') ? 'active' : ''; ?>">EN</a>
+                <a href="actions/change-language.php?lang=kh&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="<?php echo (isset($_SESSION['lang']) && $_SESSION['lang'] == 'kh') ? 'active' : ''; ?>">ខ្មែរ</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -403,23 +418,13 @@ $site_name = "SunLove";
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="programDropdown">
                             <li>
-                                <a class="dropdown-item" href="index.php?page=program/online-learning">
-                                    <?php echo getLangText('Online Learning', 'ការសិក្សាតាមអនឡាញ'); ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index.php?page=program/career-counselling">
-                                    <?php echo getLangText('Career Counselling', 'ការប្រឹក្សាអាជីព'); ?>
-                                </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item" href="index.php?page=talkshow">
                                     <?php echo getLangText('Talkshow', 'កម្មវិធីសន្ទនា'); ?>
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="index.php?page=roadshow">
-                                    <?php echo getLangText('Roadshow', 'កម្មវិធីតាំងពិព័រណ៍'); ?>
+                                    <?php echo getLangText('Roadshow', 'កម្មវិធីបង្ហាញផ្លូវ'); ?>
                                 </a>
                             </li>
                             <li>
@@ -432,6 +437,17 @@ $site_name = "SunLove";
                                     <?php echo getLangText('Online Recruitment', 'ការជ្រើសរើសតាមអនឡាញ'); ?>
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="index.php?page=program/online-learning">
+                                    <?php echo getLangText('Online Learning', 'រៀនតាមអនឡាញ'); ?>
+                                </a>
+                            </li>  
+                             <li>
+                                <a class="dropdown-item" href="index.php?page=program/career-counselling">
+                                    <?php echo getLangText('Career Counselling', 'ពិភាក្សាតាមអនឡាញ'); ?>
+                                </a>
+                            </li>                             
+                            
                         </ul>
                     </li>
                     <!-- Explore Dropdown Menu -->
@@ -468,7 +484,7 @@ $site_name = "SunLove";
                         </a>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center d-none d-lg-flex"> <!-- Hide on small screens, show on large -->
                     <!-- Language Switcher -->
                     <div class="language-switcher">
                         <a href="actions/change-language.php?lang=en&redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="<?php echo (!isset($_SESSION['lang']) || $_SESSION['lang'] == 'en') ? 'active' : ''; ?>">EN</a>

@@ -76,147 +76,176 @@
 
   
 
- <style>
-     body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: white;
-        color: #333;
-        padding: 0rem;
-      }
+  <style>
+/* --- Global & Font Styles --- */
+:root {
+  --primary-color-start: #e63946;
+  --primary-color-end: #c12a37;
+  --light-color: #ffffff;
+  --light-text-color: #f8f9fa;
+  --dark-text-color: #333;
+  --hover-shadow: 0 10px 20px rgba(41, 23, 25, 0.25);
+  --base-shadow: 0 4px 6px rgba(41, 23, 25, 0.1);
+  --font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
 
-      .preview-section {
-        background-color: #dc3545;
-        color: white;
-        padding: 60px 20px;
-        border-radius: 14px;
-        margin-bottom: 3rem;
-      }
+/* --- Main Preview Section --- */
+.preview-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color-start),
+    var(--primary-color-end)
+  );
+  color: var(--light-text-color);
+  padding: 60px 30px;
+  border-radius: 24px; /* Softer corners */
+  margin-bottom: 3rem;
+  box-shadow: var(--hover-shadow);
+  overflow: hidden; /* Ensures content respects the border-radius */
+  position: relative;
+}
 
-      .preview-section h2 {
-        font-size: 2.5rem;
-        color: white;
-        margin-bottom: 15px;
-      }
+/* --- Typography --- */
+.preview-section h2 {
+  font-size: 1.8rem;
+  color: var(--light-color);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Adds depth to text */
+}
 
-      .preview-section p {
-        font-size: 1.1rem;
-        margin: 10px auto;
-        max-width: 600px;
-        line-height: 1.6;
-      }
+.preview-section p {
+  font-size: 1.1rem;
+  margin: 10px auto;
+  max-width: 600px;
+  line-height: 1.7; /* Increased for better readability */
+  opacity: 0.9;
+}
 
-      .preview-list {
-        margin-top: 20px;
-        font-size: 1rem;
-        list-style: none;
-        padding: 0;
-      }
+/* --- Custom List with SVG Icon --- */
+.preview-list {
+  margin-top: 25px;
+  font-size: 1.05rem;
+  list-style: none;
+  padding: 0;
+}
 
-      .preview-list li::before {
-        content: "✅";
-        color: limegreen;
-        font-weight: bold;
-        margin-right: 5px;
-      }
+.preview-list li {
+  margin-bottom: 12px; /* Adds spacing between items */
+  display: flex;
+  align-items: center;
+}
 
-      .preview-buttons {
-        margin: 30px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-      }
+.preview-list li::before {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2334D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>');
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
-      .preview-buttons a {
-        text-decoration: none;
-        background-color: white;
-        color: #dc3545;
-        border: none;
-        border-radius: 30px;
-        padding: 12px 24px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 220px;
-        justify-content: center;
-        transition: all 0.3s ease;
-      }
+/* --- Action Buttons --- */
+.preview-buttons {
+  margin: 40px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
 
-      .preview-buttons a img {
-        filter: brightness(0) saturate(100%) invert(26%) sepia(92%)
-          saturate(1811%) hue-rotate(337deg) brightness(98%) contrast(97%);
-        transition: filter 0.3s ease;
-      }
+.preview-buttons a {
+  text-decoration: none;
+  background-color: var(--light-color);
+  color: var(--primary-color-start);
+  border: none;
+  border-radius: 50px; /* Fully rounded pill shape */
+  padding: 14px 28px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--base-shadow);
+}
 
-      .preview-buttons a:hover {
-           background-color: #dc3545;
-        color: #ffffff;
-        box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-      }
+.preview-buttons a img {
+  filter: brightness(0) saturate(100%) invert(26%) sepia(92%)
+    saturate(1811%) hue-rotate(337deg) brightness(98%) contrast(97%);
+  transition: filter 0.3s ease;
+}
 
-      .preview-buttons a:hover img {
-        filter: brightness(0) invert(1);
-      }
+.preview-buttons a:hover {
+  background-color: var(--light-color);
+  color: #a1202b; /* A darker red on hover for better contrast */
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-5px); /* More pronounced hover effect */
+}
 
-      .preview-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-      }
+.preview-buttons a:hover img {
+  /* No filter change needed if icon color is desirable on hover */
+}
 
-      .preview-image {
-        max-width: 100%;
-        width: 400px;
-        animation: float 3s ease-in-out infinite;
-      }
+/* --- Content & Image Layout --- */
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center; /* Center text on mobile */
+}
 
-      @keyframes float {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
+.preview-image {
+  max-width: 100%;
+  width: 400px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(
+    0 20px 25px rgba(0, 0, 0, 0.3)
+  ); /* More realistic shadow */
+}
 
-      @media (min-width: 768px) {
-        .preview-content {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          text-align: left;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
 
-        .preview-text {
-          max-width: 50%;
-        }
+/* --- Responsive Design for Desktop --- */
+@media (min-width: 768px) {
+  .preview-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-        .preview-buttons {
-          flex-direction: row;
-          justify-content: start;
-        }
+  .preview-text {
+    max-width: 50%;
+  }
 
-        .preview-buttons a {
-          margin-right: 15px;
-        }
+  .preview-buttons {
+    flex-direction: row;
+    justify-content: flex-start; /* Align to the left on desktop */
+  }
 
-        .preview-image {
-          width: 500px;
-        }
-      }
+  .preview-buttons a {
+    margin-right: 15px;
+  }
+
+  .preview-image {
+    width: 450px; /* Slightly smaller for better balance */
+  }
+}
     </style>
   </head>
   <body>
+    
     <section class="preview-section">
       <div class="preview-content">
         <div class="preview-text">
@@ -234,7 +263,7 @@
 
           <div class="preview-buttons">
             <a
-              href="https://play.google.com/store/apps/details?id=com.app.maca.kh&pcampaignid=web_share"
+              href="https://play.google.com/store/apps/details?id=maca.app.org.com"
             >
               <img
                 src="https://img.icons8.com/ios-filled/24/000000/android-os.png"
@@ -260,6 +289,7 @@
         />
       </div>
     </section>
+
 
 <div class="educational-programs-section py-5 mb-5">
     <div class="container">
@@ -300,7 +330,7 @@
                     'title' => getLangText('Internship Program', 'កម្មវិធីកម្មសិក្សា'),
                     'description' => getLangText('Gain practical experience through our partnerships with leading organizations and build your professional network.', 'ទទួលបានបទពិសោធន៍ជាក់ស្តែងតាមរយៈភាពជាដៃគូរបស់យើងជាមួយអង្គការឈានមុខគេ និងកសាងបណ្តាញវិជ្ជាជីវៈរបស់អ្នក។'),
                     'icon' => 'fa-briefcase',
-                    'link' => '#',
+                    'link' => 'index.php?page=program/internship/internship',
                     'color' => 'purple',
                     'features' => [getLangText('Real Experience', 'បទពិសោធន៍ពិតប្រាកដ'), getLangText('Industry Partners', 'ដៃគូឧស្សាហកម្ម'), getLangText('Skill Development', 'ការអភិវឌ្ឍជំនាញ')]
                 ],
@@ -308,9 +338,17 @@
                     'title' => getLangText('Online Recruitment', 'ការជ្រើសរើសតាមអនឡាញ'),
                     'description' => getLangText('Connect with employers looking for talented individuals like you through our comprehensive job placement platform.', 'ភ្ជាប់ទំនាក់ទំនងជាមួយនិយោជកដែលកំពុងស្វែងរកបុគ្គលដែលមានទេពកោសល្យដូចអ្នកតាមរយៈវេទិកាស្វែងរកការងារដ៏ទូលំទូលាយរបស់យើង។'),
                     'icon' => 'fa-handshake',
-                    'link' => '#',
+                    'link' => 'index.php?page=program/online-recruitment',
                     'color' => 'orange',
                     'features' => [getLangText('Job Matching', 'ការផ្គូផ្គងការងារ'), getLangText('Employer Network', 'បណ្តាញនិយោជក'), getLangText('Career Support', 'ការគាំទ្រអាជីព')]
+                ],
+                 [
+                    'title' => getLangText('Career Counselling', 'ការប្រឹក្សាអាជីព'),
+                    'description' => getLangText('Get expert guidance to make informed decisions about your academic and career path with personalized advice.', 'ទទួលបានការណែនាំពីអ្នកជំនាញដើម្បីធ្វើការសម្រេចចិត្តប្រកបដោយការយល់ដឹងអំពីផ្លូវសិក្សា និងអាជីពរបស់អ្នកជាមួយនឹងដំបូន្មានផ្ទាល់ខ្លួន។'),
+                    'icon' => 'fa-user-tie', 
+                    'link' => 'index.php?page=program/career-counselling',
+                    'color' => 'orange',
+                    'features' => [getLangText('Education & Academic Plannin', 'ការប្រឹក្សាផ្នែកអប់រំ'), getLangText('Career Development & Guidanc', 'ការប្រឹក្សាផ្នែកអាជីព'), getLangText('Personal Growth & Decision-Making', ' ការអភិវឌ្ឍផ្ទាល់ខ្លួន និងការសម្រេចចិត្ត')]
                 ]
             ];
             
@@ -380,7 +418,7 @@
             <?php
             // Fetch popular majors from database
             try {
-                $stmt = $pdo->query("SELECT * FROM popular_majors WHERE is_active = 1 ORDER BY display_order ASC LIMIT 4");
+                $stmt = $pdo->query("SELECT * FROM popular_majors WHERE is_active = 1 ORDER BY display_order ASC LIMIT 6");
                 $popular_majors = $stmt->fetchAll();
                 
                 if (count($popular_majors) > 0):
@@ -1932,7 +1970,7 @@
 
 .majors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;

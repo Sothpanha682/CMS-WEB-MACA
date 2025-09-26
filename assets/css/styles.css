@@ -1,4 +1,10 @@
 /* General styling */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   color: #333;
@@ -36,6 +42,10 @@ body.lang-kh .card-text {
 /* Header styling */
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1020 !important; /* Ensure it stays above other content */
+  width: 100%; /* Ensure it spans the full width */
 }
 
 .navbar-brand img {

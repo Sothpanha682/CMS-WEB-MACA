@@ -1,2 +1,0 @@
-ALTER TABLE job_postings
-ADD COLUMN logo_path VARCHAR(255) DEFAULT NULL;

@@ -43,7 +43,7 @@ if (isset($_GET['lang']) && ($_GET['lang'] == 'en' || $_GET['lang'] == 'kh')) {
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     
-    // Handle message actions
+    // Handle message actions 
     if ($action == 'mark-message-read' && isset($_GET['id'])) {
         require_once 'actions/mark-message-read.php';
         exit;
@@ -97,7 +97,7 @@ $allowed_pages = [
     'career-paths-detail', 'popular-majors-detail', 'popular-jobs-detail',
     'logout', 'search', 'search-results', 'search-career-paths',
     'search-popular-majors', 'search-popular-jobs', 'search-announcements',
-    'search-news', 'search-roadshow','internship','program/internship/internship', // Added internship page
+    'search-news', 'search-roadshow','internship','intership-detail','program/internship/internship', 'intership-detail', // Added internship page
     'search-team-members', 'search-users', 'search-media','announcement-detail',
     'search-career-paths-detail', 'search-popular-majors-detail',
     'search-popular-jobs-detail', 'search-announcements-detail',    
@@ -109,20 +109,39 @@ $allowed_pages = [
     'manage-messages', 'manage-recruitment', 'add-job-posting', 'edit-job-posting',
     'manage-applications', 'manage-recruitment-applications', 'view-job-applications',
     'manage-online-courses', 'add-online-course', 'edit-online-course',
-    
-    
+    'add-job-opportunity', 'job-apply','manage-career-counselling-forms','program/online-learning',
+    'manage-announcements' // Added manage-announcements to allowed pages
 ];
 
 
 
 // Check if the page exists and is allowed
-if (!in_array($page, $allowed_pages) || !file_exists("pages/{$page}.php")) {
+$found_page_file = false;
+$include_path = '';
+
+if (in_array($page, $allowed_pages)) {
+    if (file_exists("pages/{$page}.php")) {
+        $include_path = "pages/{$page}.php";
+        $found_page_file = true;
+    } else {
+        // Check for nested structure like program/online-recruitment/online-recruitment.php
+        $path_parts = explode('/', $page);
+        $last_part = end($path_parts);
+        if (file_exists("pages/{$page}/{$last_part}.php")) {
+            $include_path = "pages/{$page}/{$last_part}.php";
+            $found_page_file = true;
+        }
+    }
+}
+
+if (!$found_page_file) {
     // Debug information
     error_log("404 Error - Page not found: " . $page);
     error_log("Requested URL: " . $_SERVER['REQUEST_URI']);
     error_log("GET parameters: " . print_r($_GET, true));
     
-    $page = '404';
+    $page = '404'; // Set page to 404 for admin check
+    $include_path = 'pages/404.php';
 }
 
 // Check if user is logged in for admin pages
@@ -132,7 +151,7 @@ $admin_pages = [
     'add-team-member', 'edit-team-member', 'manage-recruitment', 'add-job-posting', 
     'edit-job-posting', 'manage-applications', 'manage-recruitment-applications', 
     'view-job-applications', 'manage-online-courses', 'add-online-course', 
-    'edit-online-course', 'manage-intern-news', 'add-intern-news', 'edit-intern-news',
+    'edit-online-course', 'manage-intern-news', 'add-intern-news', 'edit-intern-news','manage-announcements'
 ];
 
 if (in_array($page, $admin_pages) && !isLoggedIn()) {
@@ -146,7 +165,7 @@ if (in_array($page, $admin_pages) && !isLoggedIn()) {
 include 'includes/header.php';
 
 // Include the requested page
-include "pages/{$page}.php";
+include $include_path;
 
 // Include footer
 include 'includes/footer.php';

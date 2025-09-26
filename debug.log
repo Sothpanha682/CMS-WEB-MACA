@@ -67692,3 +67692,2896 @@ Supportive team environment
     [logo_path] => 
 )
 
+[2025-09-16 07:20:54] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:20:54] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:20:54] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:20:54] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 13
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:18:15
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:20:54] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 13
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:18:15
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:20:54] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:20:54] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:20:54] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:20:54] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 13
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:18:15
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 07:21:21] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:21:21] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:21] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:21] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:21] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:21] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:21:21] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:21:21] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:21:21] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 15
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:21:04
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 07:21:28] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:21:28] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:28] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:28] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:28] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:28] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:21:28] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:21:28] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:21:28] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 15
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:21:04
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 07:21:31] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:21:31] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:31] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:21:31] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:31] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 15
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:21:04
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:21:31] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:21:31] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:21:31] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:21:31] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 15
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:21:04
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 07:46:41] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:46:41] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:46:41] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:46:41] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 46
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:35:27
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:46:41] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 46
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:35:27
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:46:41] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:46:41] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:46:41] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:46:41] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 46
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:35:27
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 07:57:59] [Page Load] Online Recruitment page loaded.
+[2025-09-16 07:57:59] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:57:59] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 07:57:59] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 47
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:55:20
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:57:59] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 47
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 14:55:20
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 07:57:59] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 07:57:59] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 07:57:59] [Number of Jobs Before Display Check] 1
+[2025-09-16 07:57:59] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 47
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 14:55:20
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:02:20] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:02:20] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:02:20] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:02:20] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:02:20] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:02:20] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:02:20] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:02:20] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:02:20] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:17:15] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:17:15] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:17:15] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:17:15] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:17:15] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:17:15] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:17:15] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:17:15] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:17:15] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:31:10] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:31:10] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:10] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:10] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:10] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:10] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:31:10] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:31:10] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:31:10] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:31:30] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:31:30] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:30] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:30] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:30] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:30] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:31:30] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:31:30] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:31:30] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:31:43] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:31:43] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:43] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:31:43] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:43] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:31:43] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:31:43] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:31:43] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:31:43] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:47:06] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:47:06] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:47:06] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:47:06] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:47:06] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:47:06] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:47:06] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:47:06] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:47:06] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:58:09] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:58:09] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:58:09] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:58:09] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:58:09] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:58:09] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:58:09] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:58:09] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:58:09] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-16 08:58:55] [Page Load] Online Recruitment page loaded.
+[2025-09-16 08:58:55] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:58:55] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-16 08:58:55] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:58:55] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [title] => r
+            [company_name] => r
+            [location] => r
+            [job_type] => part-time
+            [salary_min] => 2.00
+            [salary_max] => 2.00
+            [currency] => USD
+            [description] => r
+            [requirements] => r
+            [benefits] => r
+            [application_deadline] => 2025-07-12
+            [contact_email] => sothpanha682@gmail.com
+            [contact_number] => 093367184
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 50
+            [applications_count] => 0
+            [created_at] => 2025-06-30 13:31:55
+            [updated_at] => 2025-09-16 15:02:14
+            [responsibilities] => r
+            [application_instructions] => r
+            [company_logo] => 
+            [logo_path] => 
+        )
+
+)
+
+[2025-09-16 08:58:55] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-16 08:58:55] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-16 08:58:55] [Number of Jobs Before Display Check] 1
+[2025-09-16 08:58:55] [Job Data in Loop] Array
+(
+    [id] => 7
+    [title] => r
+    [company_name] => r
+    [location] => r
+    [job_type] => part-time
+    [salary_min] => 2.00
+    [salary_max] => 2.00
+    [currency] => USD
+    [description] => r
+    [requirements] => r
+    [benefits] => r
+    [application_deadline] => 2025-07-12
+    [contact_email] => sothpanha682@gmail.com
+    [contact_number] => 093367184
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 50
+    [applications_count] => 0
+    [created_at] => 2025-06-30 13:31:55
+    [updated_at] => 2025-09-16 15:02:14
+    [responsibilities] => r
+    [application_instructions] => r
+    [company_logo] => 
+    [logo_path] => 
+)
+
+[2025-09-17 06:17:12] [Job Add Success] Job opportunity added successfully!
+[2025-09-17 06:17:20] [Page Load] Online Recruitment page loaded.
+[2025-09-17 06:17:20] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:17:20] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:17:20] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:20] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:20] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-17 06:17:20] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 0
+)
+
+[2025-09-17 06:17:20] [Number of Jobs Before Display Check] 1
+[2025-09-17 06:17:20] [Job Data in Loop] Array
+(
+    [id] => 8
+    [title] => Senior Graphic Designer
+    [company_name] => Edvise
+    [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+    [job_type] => full-time
+    [salary_min] => 350.00
+    [salary_max] => 500.00
+    [currency] => USD
+    [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+    [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+    [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+    [application_deadline] => 2025-10-15
+    [contact_email] => info@mymaca.asia
+    [contact_number] => 070 887 332
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 0
+    [applications_count] => 0
+    [created_at] => 2025-09-17 13:17:12
+    [updated_at] => 2025-09-17 13:17:12
+    [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+    [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+    [company_logo] => 
+    [logo_path] => uploads/1758089832_68ca52685a6c7.png
+)
+
+[2025-09-17 06:17:34] [Page Load] Online Recruitment page loaded.
+[2025-09-17 06:17:34] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+            [1] => (title LIKE ? OR description LIKE ? OR company_name LIKE ?)
+        )
+
+    [params] => Array
+        (
+            [0] => %Design%
+            [1] => %Design%
+            [2] => %Design%
+        )
+
+)
+
+[2025-09-17 06:17:34] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 AND (title LIKE ? OR description LIKE ? OR company_name LIKE ?) ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+            [0] => %Design%
+            [1] => %Design%
+            [2] => %Design%
+        )
+
+)
+
+[2025-09-17 06:17:34] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:34] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:34] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-17 06:17:34] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 0
+)
+
+[2025-09-17 06:17:34] [Number of Jobs Before Display Check] 1
+[2025-09-17 06:17:34] [Job Data in Loop] Array
+(
+    [id] => 8
+    [title] => Senior Graphic Designer
+    [company_name] => Edvise
+    [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+    [job_type] => full-time
+    [salary_min] => 350.00
+    [salary_max] => 500.00
+    [currency] => USD
+    [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+    [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+    [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+    [application_deadline] => 2025-10-15
+    [contact_email] => info@mymaca.asia
+    [contact_number] => 070 887 332
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 0
+    [applications_count] => 0
+    [created_at] => 2025-09-17 13:17:12
+    [updated_at] => 2025-09-17 13:17:12
+    [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+    [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+    [company_logo] => 
+    [logo_path] => uploads/1758089832_68ca52685a6c7.png
+)
+
+[2025-09-17 06:17:38] [Page Load] Online Recruitment page loaded.
+[2025-09-17 06:17:38] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+            [1] => (title LIKE ? OR description LIKE ? OR company_name LIKE ?)
+        )
+
+    [params] => Array
+        (
+            [0] => %Design%
+            [1] => %Design%
+            [2] => %Design%
+        )
+
+)
+
+[2025-09-17 06:17:38] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 AND (title LIKE ? OR description LIKE ? OR company_name LIKE ?) ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+            [0] => %Design%
+            [1] => %Design%
+            [2] => %Design%
+        )
+
+)
+
+[2025-09-17 06:17:38] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:38] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 0
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:17:12
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:17:38] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-17 06:17:38] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 0
+)
+
+[2025-09-17 06:17:38] [Number of Jobs Before Display Check] 1
+[2025-09-17 06:17:38] [Job Data in Loop] Array
+(
+    [id] => 8
+    [title] => Senior Graphic Designer
+    [company_name] => Edvise
+    [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+    [job_type] => full-time
+    [salary_min] => 350.00
+    [salary_max] => 500.00
+    [currency] => USD
+    [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+    [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+    [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+    [application_deadline] => 2025-10-15
+    [contact_email] => info@mymaca.asia
+    [contact_number] => 070 887 332
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 0
+    [applications_count] => 0
+    [created_at] => 2025-09-17 13:17:12
+    [updated_at] => 2025-09-17 13:17:12
+    [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+    [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+    [company_logo] => 
+    [logo_path] => uploads/1758089832_68ca52685a6c7.png
+)
+
+[2025-09-17 06:19:00] [Page Load] Online Recruitment page loaded.
+[2025-09-17 06:19:00] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:19:00] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:19:00] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 2
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:18:03
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:19:00] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 2
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:18:03
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:19:00] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-17 06:19:00] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 1
+)
+
+[2025-09-17 06:19:00] [Number of Jobs Before Display Check] 1
+[2025-09-17 06:19:00] [Job Data in Loop] Array
+(
+    [id] => 8
+    [title] => Senior Graphic Designer
+    [company_name] => Edvise
+    [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+    [job_type] => full-time
+    [salary_min] => 350.00
+    [salary_max] => 500.00
+    [currency] => USD
+    [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+    [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+    [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+    [application_deadline] => 2025-10-15
+    [contact_email] => info@mymaca.asia
+    [contact_number] => 070 887 332
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 2
+    [applications_count] => 0
+    [created_at] => 2025-09-17 13:17:12
+    [updated_at] => 2025-09-17 13:18:03
+    [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+    [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+    [company_logo] => 
+    [logo_path] => uploads/1758089832_68ca52685a6c7.png
+)
+
+[2025-09-17 06:25:27] [Page Load] Online Recruitment page loaded.
+[2025-09-17 06:25:27] [Filter Parameters] Array
+(
+    [where_conditions] => Array
+        (
+            [0] => is_active = 1
+        )
+
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:25:27] [Main Job Query] Array
+(
+    [query] => SELECT * FROM job_postings WHERE is_active = 1 ORDER BY is_featured DESC, created_at DESC
+    [params] => Array
+        (
+        )
+
+)
+
+[2025-09-17 06:25:27] [Fetched Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 3
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:19:02
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:25:27] [Fetched Featured Jobs] Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [title] => Senior Graphic Designer
+            [company_name] => Edvise
+            [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+            [job_type] => full-time
+            [salary_min] => 350.00
+            [salary_max] => 500.00
+            [currency] => USD
+            [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+            [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+            [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+            [application_deadline] => 2025-10-15
+            [contact_email] => info@mymaca.asia
+            [contact_number] => 070 887 332
+            [contact_phone] => 
+            [is_featured] => 1
+            [is_active] => 1
+            [views_count] => 3
+            [applications_count] => 0
+            [created_at] => 2025-09-17 13:17:12
+            [updated_at] => 2025-09-17 13:19:02
+            [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+            [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+            [company_logo] => 
+            [logo_path] => uploads/1758089832_68ca52685a6c7.png
+        )
+
+)
+
+[2025-09-17 06:25:27] [Recruitment Settings] Array
+(
+    [id] => 1
+    [company_name] => MACA Education
+    [company_description] => MACA is a leading educational institution dedicated to empowering students through quality education and career guidance. We are committed to fostering innovation, excellence, and personal growth.
+    [company_logo] => 
+    [company_website] => 
+    [hr_email] => hr@maca.edu
+    [hr_phone] => 
+    [office_address] => 
+    [company_culture] => At MACA, we believe in creating an inclusive, collaborative, and innovative work environment where every team member can thrive and make a meaningful impact on education.
+    [benefits_overview] => We offer competitive salaries, comprehensive health benefits, professional development opportunities, flexible work arrangements, and a supportive team environment.
+    [created_at] => 2025-06-26 16:16:24
+    [updated_at] => 2025-06-26 16:16:24
+)
+
+[2025-09-17 06:25:27] [Job Statistics] Array
+(
+    [total_jobs] => 1
+    [total_companies] => 1
+    [total_applications] => 2
+)
+
+[2025-09-17 06:25:27] [Number of Jobs Before Display Check] 1
+[2025-09-17 06:25:27] [Job Data in Loop] Array
+(
+    [id] => 8
+    [title] => Senior Graphic Designer
+    [company_name] => Edvise
+    [location] => Wealth Mainson Building Floor 6, Room 30, Sk.Chroychangva Kh.Chroy Changva
+    [job_type] => full-time
+    [salary_min] => 350.00
+    [salary_max] => 500.00
+    [currency] => USD
+    [description] => Edvise is seeking a talented Senior Graphic Designer to lead visual storytelling across digital and print platforms. You’ll collaborate with a dynamic team to create compelling brand assets, marketing materials, and product visuals.
+    [requirements] => - 5+ years of experience in graphic design
+- Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)
+- Strong portfolio showcasing branding and campaign work
+- Excellent communication and time management skills
+- Experience with motion graphics is a plus
+    [benefits] => - Competitive salary
+- Flexible working hours
+- Health insurance
+- Annual performance bonus
+- Creative and supportive work environment
+    [application_deadline] => 2025-10-15
+    [contact_email] => info@mymaca.asia
+    [contact_number] => 070 887 332
+    [contact_phone] => 
+    [is_featured] => 1
+    [is_active] => 1
+    [views_count] => 3
+    [applications_count] => 0
+    [created_at] => 2025-09-17 13:17:12
+    [updated_at] => 2025-09-17 13:19:02
+    [responsibilities] => - Lead design projects from concept to execution
+- Develop brand guidelines and visual identities
+- Collaborate with marketing and product teams
+- Mentor junior designers
+- Ensure consistency across all visual outputs
+    [application_instructions] => Please send your resume, portfolio, and a brief cover letter to the email below. Include “Senior Graphic Designer Application” in the subject line.
+    [company_logo] => 
+    [logo_path] => uploads/1758089832_68ca52685a6c7.png
+)
+

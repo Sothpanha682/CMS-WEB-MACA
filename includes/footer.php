@@ -7,9 +7,10 @@
                 <h5><?php echo getLangText('MACA', 'MACA'); ?></h5>
                 <p><?php echo getLangText('Empowering education for a better future. We provide comprehensive educational resources and career guidance.', 'លើកកម្ពស់ការអប់រំសម្រាប់អនាគតកាន់តែប្រសើរ។ យើងផ្តល់ធនធានអប់រំដ៏ទូលំទូលាយ និងការណែនាំអាជីព។'); ?></p>
                 <div class="social-icons">
-                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/mymaca.asia?mibextid=ZbWKwL" class="text-white me-2" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@mymaca?si=oTRXywvFlYC9MuJ9" class="text-white me-2" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://t.me/mymacachannel" class="text-white me-2" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://www.tiktok.com/@mymaca.asia001?_t=ZS-8w0yU823Qo9&_r=1" class="text-white me-2" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -44,9 +45,9 @@
 <script src="assets/js/script.js"></script>
 
 <!-- Include AI Assistant -->
-<?php include 'includes/ai-assistant.php'; ?>
+<?php // include 'includes/ai-assistant.php'; ?>
 
 <!-- Include AI Assistant JS -->
-<script src="assets/js/ai-assistant.js"></script>
+<?php // <script src="assets/js/ai-assistant.js"></script> ?>
 </body>
 </html>

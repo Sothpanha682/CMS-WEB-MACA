@@ -1,4 +1,0 @@
-ALTER TABLE online_courses
-ADD COLUMN students_count INT DEFAULT 0,
-ADD COLUMN lessons_count INT DEFAULT 0,
-ADD COLUMN rating DECIMAL(2,1) DEFAULT 0.0;

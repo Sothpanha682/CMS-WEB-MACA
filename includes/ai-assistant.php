@@ -1,3 +1,5 @@
+<!--
+
 <?php
 // Prevent direct access
 if (!defined('INCLUDED')) {
@@ -6,7 +8,9 @@ if (!defined('INCLUDED')) {
 }
 ?>
 
-<!-- AI Assistant Widget -->
+
+
+// AI Assistant Widget 
 <div id="ai-assistant-widget" class="ai-assistant-closed">
     <div id="ai-assistant-button">
         <i class="fas fa-robot"></i>
@@ -45,6 +49,8 @@ if (!defined('INCLUDED')) {
     </div>
 </div>
 
+
+  -->
 <!-- Add AI Assistant CSS -->
 <style>
 #ai-assistant-widget {

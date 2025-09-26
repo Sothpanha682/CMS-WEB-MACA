@@ -42,8 +42,8 @@ if (!isLoggedIn()) {
                     
                     // Handle image upload if provided
                     if (isset($_FILES["hero_image_{$i}"]) && $_FILES["hero_image_{$i}"]['size'] > 0) {
-                        $upload_result = uploadFile($_FILES["hero_image_{$i}"]);
-                        if ($upload_result['success']) {
+                        $upload_result = uploadFile($_FILES["hero_image_{$i}"], 'uploads/slideshow/');
+                        if ($upload_result['status']) {
                             $image_path = $upload_result['path'];
                             
                             try {
@@ -70,8 +70,6 @@ if (!isLoggedIn()) {
                             $update_message = $upload_result['message'];
                         }
                     }
-                    
-                    // No text or button processing needed anymore
                     
                     // Display update message
                     if (!empty($update_message)) {
@@ -131,39 +129,93 @@ if (!isLoggedIn()) {
             <?php } ?>
             
             <div class="slideshow-settings mt-4">
-                <div class="card">
-                    <div class="card-header bg-light">
-                        <h5 class="mb-0">Slideshow Settings</h5>
+    <div class="card">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">Slideshow Settings</h5>
+        </div>
+        <div class="card-body">
+            <?php
+            // Handle slideshow settings submission
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["slideshow_settings_submit"])) {
+                $slideshow_speed = isset($_POST["slideshow_speed"]) ? intval($_POST["slideshow_speed"]) : 6;
+                $slideshow_effect = isset($_POST["slideshow_effect"]) ? $_POST["slideshow_effect"] : 'fade';
+                
+                try {
+                    // Save slideshow speed
+                    $stmt = $pdo->prepare("SELECT * FROM site_settings WHERE setting_key = 'slideshow_speed'");
+                    $stmt->execute();
+                    
+                    if ($stmt->rowCount() > 0) {
+                        $stmt = $pdo->prepare("UPDATE site_settings SET setting_value = :value WHERE setting_key = 'slideshow_speed'");
+                    } else {
+                        $stmt = $pdo->prepare("INSERT INTO site_settings (setting_key, setting_value) VALUES ('slideshow_speed', :value)");
+                    }
+                    $stmt->bindParam(':value', $slideshow_speed);
+                    $stmt->execute();
+                    
+                    // Save slideshow effect
+                    $stmt = $pdo->prepare("SELECT * FROM site_settings WHERE setting_key = 'slideshow_effect'");
+                    $stmt->execute();
+                    
+                    if ($stmt->rowCount() > 0) {
+                        $stmt = $pdo->prepare("UPDATE site_settings SET setting_value = :value WHERE setting_key = 'slideshow_effect'");
+                    } else {
+                        $stmt = $pdo->prepare("INSERT INTO site_settings (setting_key, setting_value) VALUES ('slideshow_effect', :value)");
+                    }
+                    $stmt->bindParam(':value', $slideshow_effect);
+                    $stmt->execute();
+                    
+                    echo '<div class="alert alert-success">Slideshow settings updated successfully!</div>';
+                } catch(PDOException $e) {
+                    echo '<div class="alert alert-danger">Error updating slideshow settings: ' . $e->getMessage() . '</div>';
+                }
+            }
+            
+            // Get current slideshow settings
+            try {
+                $stmt = $pdo->prepare("SELECT * FROM site_settings WHERE setting_key = 'slideshow_speed'");
+                $stmt->execute();
+                $slideshow_speed_setting = $stmt->fetch();
+                $current_speed = ($slideshow_speed_setting && $slideshow_speed_setting['setting_value']) ? $slideshow_speed_setting['setting_value'] : 6;
+                
+                $stmt = $pdo->prepare("SELECT * FROM site_settings WHERE setting_key = 'slideshow_effect'");
+                $stmt->execute();
+                $slideshow_effect_setting = $stmt->fetch();
+                $current_effect = ($slideshow_effect_setting && $slideshow_effect_setting['setting_value']) ? $slideshow_effect_setting['setting_value'] : 'fade';
+            } catch(PDOException $e) {
+                $current_speed = 6;
+                $current_effect = 'fade';
+            }
+            ?>
+            
+            <form method="post" action="">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="slideshow_speed" class="form-label">Slide Duration (seconds)</label>
+                            <input type="number" class="form-control" id="slideshow_speed" name="slideshow_speed" min="3" max="15" value="<?php echo $current_speed; ?>">
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form method="post" action="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="slideshow_speed" class="form-label">Slide Duration (seconds)</label>
-                                        <input type="number" class="form-control" id="slideshow_speed" name="slideshow_speed" min="3" max="15" value="6">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="slideshow_effect" class="form-label">Transition Effect</label>
-                                        <select class="form-select" id="slideshow_effect" name="slideshow_effect">
-                                            <option value="fade" selected>Fade</option>
-                                            <option value="slide">Slide</option>
-                                            <option value="zoom">Zoom</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" name="slideshow_settings_submit" class="btn btn-danger">
-                                    <i class="fas fa-save"></i> Save Settings
-                                </button>
-                            </div>
-                        </form>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="slideshow_effect" class="form-label">Transition Effect</label>
+                            <select class="form-select" id="slideshow_effect" name="slideshow_effect">
+                                <option value="fade" <?php echo ($current_effect == 'fade') ? 'selected' : ''; ?>>Fade</option>
+                                <option value="slide" <?php echo ($current_effect == 'slide') ? 'selected' : ''; ?>>Slide</option>
+                                <option value="zoom" <?php echo ($current_effect == 'zoom') ? 'selected' : ''; ?>>Zoom</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="text-end">
+                    <button type="submit" name="slideshow_settings_submit" class="btn btn-danger">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -179,9 +231,9 @@ if (!isLoggedIn()) {
                             // Handle about banner upload
                             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['about_banner_submit'])) {
                                 if (isset($_FILES['about_banner']) && $_FILES['about_banner']['size'] > 0) {
-                                    $upload_result = uploadFile($_FILES['about_banner']);
-                                    if ($upload_result['success']) {
-                                        $image_path = $upload_result['file_path'];
+                                    $upload_result = uploadFile($_FILES['about_banner'], 'uploads/banners/');
+                                    if ($upload_result['status']) {
+                                        $image_path = $upload_result['path'];
                                         
                                         try {
                                             // Check if about banner setting exists

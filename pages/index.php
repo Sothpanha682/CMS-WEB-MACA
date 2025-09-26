@@ -87,7 +87,7 @@ $allowed_pages = [
     'program/talkshow', 'program/roadshow',
     'talkshow-detail', 'roadshow-detail',
     'popular-majors', 'popular-jobs',
-    'manage-messages',
+    'manage-messages','news.php',
     '404','edit-internship', 'talkshow', 'roadshow', 'career-paths', 'popular-majors', 'popular-jobs'
     ,'add-internship', 'edit-internship', 'delete-roadshow', 'delete-talkshow', 'delete-internship', 'manage-internships','program/online-recruitment'
 ];

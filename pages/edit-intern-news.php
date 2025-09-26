@@ -62,33 +62,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Category is required.";
     }
     
-    // Handle image upload
-    $image_path = $news['image_path']; // Keep existing image by default
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $upload_result = uploadFile($_FILES['image'], 'uploads/intern-news/', ['jpg', 'jpeg', 'png', 'gif'], 5242880);
-        if ($upload_result['status']) {
-            // Delete old image if it exists
-            if ($news['image_path'] && file_exists($news['image_path'])) {
-                unlink($news['image_path']);
-            }
-            $image_path = $upload_result['path'];
-        } else {
-            $errors[] = $upload_result['message'];
-        }
+    // Handle video URL
+    $video_url = sanitize($_POST['image_url'] ?? ''); // Use 'image_url' from form for video_url column
+
+    // Keep existing video_url by default if no new URL is provided
+    if (empty($video_url)) {
+        $video_url = $news['video_url'] ?? '';
     }
-    
-    // Handle image removal
+
+    // Handle video removal
     if (isset($_POST['remove_image']) && $_POST['remove_image'] == '1') {
-        if ($news['image_path'] && file_exists($news['image_path'])) {
-            unlink($news['image_path']);
-        }
-        $image_path = '';
+        $video_url = '';
     }
     
     // If no errors, update database
     if (empty($errors)) {
         try {
-            $stmt = $pdo->prepare("UPDATE intern_news SET title = :title, content = :content, excerpt = :excerpt, intern_name = :intern_name, intern_university = :intern_university, intern_company = :intern_company, category = :category, image_path = :image_path, is_featured = :is_featured, is_active = :is_active, updated_at = CURRENT_TIMESTAMP WHERE id = :id");
+            $stmt = $pdo->prepare("UPDATE intern_news SET title = :title, content = :content, excerpt = :excerpt, intern_name = :intern_name, intern_university = :intern_university, intern_company = :intern_company, category = :category, video_url = :video_url, is_featured = :is_featured, is_active = :is_active, updated_at = CURRENT_TIMESTAMP WHERE id = :id");
             
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':content', $content);
@@ -97,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':intern_university', $intern_university);
             $stmt->bindParam(':intern_company', $intern_company);
             $stmt->bindParam(':category', $category);
-            $stmt->bindParam(':image_path', $image_path);
+            $stmt->bindParam(':video_url', $video_url); // Bind to video_url
             $stmt->bindParam(':is_featured', $is_featured);
             $stmt->bindParam(':is_active', $is_active);
             $stmt->bindParam(':id', $id);
@@ -191,21 +181,25 @@ $categories = [
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Featured Image</label>
-                                    <?php if ($news['image_path'] && file_exists($news['image_path'])): ?>
+                                    <label for="image_url" class="form-label">Featured Video URL (Facebook/YouTube)</label>
+                                    <input type="text" class="form-control" id="image_url" name="image_url" 
+                                           value="<?php echo (isset($news['video_url']) && filter_var($news['video_url'], FILTER_VALIDATE_URL)) ? htmlspecialchars($news['video_url']) : ''; ?>" 
+                                           placeholder="Enter video URL from Facebook or YouTube">
+                                    <div class="form-text">Provide a direct URL to a video.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <?php if (isset($news['video_url']) && $news['video_url']): ?>
                                         <div class="mb-2">
-                                            <img src="<?php echo $news['image_path']; ?>" alt="Current Image" 
-                                                 class="img-thumbnail" style="max-width: 200px;">
+                                            <p>Current Video URL: <a href="<?php echo htmlspecialchars($news['video_url']); ?>" target="_blank"><?php echo htmlspecialchars($news['video_url']); ?></a></p>
                                             <div class="form-check mt-2">
                                                 <input class="form-check-input" type="checkbox" id="remove_image" name="remove_image" value="1">
                                                 <label class="form-check-label" for="remove_image">
-                                                    Remove current image
+                                                    Remove current video URL
                                                 </label>
                                             </div>
                                         </div>
                                     <?php endif; ?>
-                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
-                                    <div class="form-text">Recommended size: 800x600px. Max size: 5MB.</div>
                                 </div>
 
                                 <hr>
